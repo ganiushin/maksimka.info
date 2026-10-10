@@ -63,12 +63,12 @@
         "company": "Яндекс • Москва",
         "points": [
           "Вырос от инженера по тестированию до руководителя службы.",
-          "Служба тестировала флот, который на пике насчитывал 120 беспилотных автомобилей и около 300 роботов-доставщиков.",
+          "Служба тестировала флот, который на пике насчитывал 120 беспилотных автомобилей и около 250 роботов-доставщиков.",
           "Вместе с командой выстроил релизный цикл и сократил его с месяца до недели: каждый релиз системы автономного вождения ежедневно проверялся в симуляторе и на автомобилях.",
-          "С нуля организовали тестирование в симуляторе, тестирование роботов-доставщиков и встраиваемых систем — от промежуточных контроллеров управления до лидаров.",
-          "Участвовал в запуске площадок в Иннополисе, Сколково, Москве, Тель-Авиве и Ясеневе и коммерческого маршрута на трассе М4: от проработки маршрута до процессов тестирования для безопасного запуска.",
+          "Внедрил в обязательную приемку и тестирование симулятор, построил процесс тестирования роботов-доставщиков и встраиваемых систем — от промежуточных контроллеров управления до лидаров.",
+          "Участвовал в запуске площадок в Иннополисе, Сколково, Москве, Тель-Авиве и Ясенево и коммерческого маршрута на трассе М4: от проработки маршрута до процессов тестирования для безопасного запуска.",
           "Подготовил первый проезд без человека в салоне: 50 км по Иннополису в октябре 2023 года, зафиксирован в экспериментальном правовом режиме (ЭПР).",
-          "Вывели на дороги Москвы первые машины без водителя за рулем и запустили роботакси в Ясеневе."
+          "Вывели на дороги Москвы первые машины без водителя за рулем и запустили роботакси в Ясенево, зафиксирован в экспериментальном правовом режиме (ЭПР)."
         ]
       },
       {
@@ -155,7 +155,7 @@
       "Колледж вычислительной техники и электроники, программное обеспечение вычислительной техники — среднее специальное, 2008"
     ],
     "additional": [
-      "Водительские права категорий A и B, личный автомобиль",
+      "Водительские права категорий A и B",
       "Готов к командировкам и запуску новых площадок",
       "Собираю шестиосевую руку-манипулятор [MaGaRM](https://github.com/ganiushin/MaGaRM)",
       "Умный дом на Home Assistant: [локальное распознавание и синтез речи](https://github.com/ganiushin/parakeet-stt-silero-tts-addons-haos), [голосовая колонка](https://github.com/ganiushin/voice-pe-firmware)"
@@ -259,12 +259,12 @@
         "company": "Yandex • Moscow",
         "points": [
           "Grew from QA engineer to head of the department.",
-          "The department tested a fleet that at its peak numbered 120 self-driving cars and about 300 delivery robots.",
+          "The department tested a fleet that at its peak numbered 120 self-driving cars and about 250 delivery robots.",
           "Together with the team, built the release cycle and cut it from a month to a week: every release of the autonomous driving system was tested daily in the simulator and on vehicles.",
-          "Set up simulator, delivery robot and embedded systems testing from scratch, from intermediate control units to lidars.",
+          "Made the simulator a mandatory part of acceptance and testing, and built the testing process for delivery robots and embedded systems, from intermediate control units to lidars.",
           "Took part in launching sites in Innopolis, Skolkovo, Moscow, Tel Aviv and Yasenevo, and a commercial route on the M4 highway: from route planning to test processes for a safe launch.",
           "Prepared the first ride with nobody in the car: 50 km around Innopolis in October 2023, recorded under Russia's experimental legal regime.",
-          "Put the first cars with no driver behind the wheel on Moscow roads and launched the robotaxi in Yasenevo."
+          "Put the first cars with no driver behind the wheel on Moscow roads and launched the robotaxi in Yasenevo, recorded under Russia's experimental legal regime."
         ]
       },
       {
@@ -351,7 +351,7 @@
       "College of Computing and Electronics, Software for Computer Systems — vocational diploma, 2008"
     ],
     "additional": [
-      "Driving license, categories A and B; own car",
+      "Driving license, categories A and B",
       "Open to business trips and launching new sites",
       "Building [MaGaRM](https://github.com/ganiushin/MaGaRM), a six-axis robot arm",
       "Smart home on Home Assistant: [local speech recognition and synthesis](https://github.com/ganiushin/parakeet-stt-silero-tts-addons-haos), [voice speaker](https://github.com/ganiushin/voice-pe-firmware)"
