@@ -656,13 +656,9 @@ h2 {
   font-weight: 500;
 }
 
-@media (max-width: 760px) {
-  .page-header {
-    padding: 32px 0 28px;
-  }
-
-  /* On a phone the language switch goes on its own line above the name,
-     otherwise a long surname pushes it off the screen. */
+/* On tablets and phones the header buttons go on their own line above the name,
+   otherwise they squeeze a long name into three lines or off the screen. */
+@media (max-width: 1000px) {
   .header-top {
     flex-direction: column-reverse;
     align-items: stretch;
@@ -673,6 +669,13 @@ h2 {
     align-self: end;
     margin-top: 0;
   }
+}
+
+@media (max-width: 760px) {
+  .page-header {
+    padding: 32px 0 28px;
+  }
+
 
   .identity {
     gap: 16px;

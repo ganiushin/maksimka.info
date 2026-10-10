@@ -215,9 +215,9 @@
         "role": "Founder",
         "company": "Am I OK (amiok.pro) • wellness service: your whole health picture in one place",
         "points": [
-          "Launched a service that reads lab results from photos and PDFs, collects data from wearable trackers, shows how values change over time and suggests what to improve.",
-          "Deployed a language model on my own servers (vLLM) so medical data never leaves the service's environment.",
-          "Added RAG: before answering, the model receives passages from a medical knowledge base, which cuts hallucinations.",
+          "Launched a service that reads lab results from photos and PDFs, collects data from wearable trackers, shows how values change over time and suggests how to get better.",
+          "Deployed a language model on my own servers to keep medical data isolated.",
+          "Added RAG: before answering, the model receives passages from a medical knowledge base.",
           "Trained a LoRA on top of SDXL for the characters and quests section; I accept generations against reference metrics.",
           "Quality system: automated tests at every level, from units to in-browser scenarios (pytest, Vitest, Playwright); every release is checked on the live site and rolled back automatically on failure.",
           "Stack: React, Django, PostgreSQL, Docker; CI/CD on GitHub with automated tests on a separate test server."
@@ -230,7 +230,7 @@
         "points": [
           "Develop the on-robot software of the series-production robot for Yandex's educational platform: firmware for both processors (ESP32-S3 and GD32), motion, camera, audio, sensors, Bluetooth and Wi-Fi.",
           "Take part in hardware reviews and in agreeing the protocol between the robot and the platform.",
-          "Prepared an acceptance stand for the assembly line: every robot goes through an automated stress test, and the results are stored in the robot's memory and mirrored to an external server.",
+          "Built an acceptance stand for the assembly line: every robot goes through an automated stress test, and the results are stored in the robot's memory and mirrored to an external server.",
           "Hardware-free firmware tests: the interpreter and the protocol are tested on a computer, and the BLE contract and the platform's command set are checked automatically in CI.",
           "For the Yandex Education Cup, assembled and tuned the robots and built a web platform for training a neural network and a simulator with a map editor. The code is open on GitHub.",
           "Together with Yandex Education and RoboFinist we ran the final of the Robo-Delivery competition for students aged 12–15; I worked on the rules, the field and the judging criteria."

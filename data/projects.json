@@ -23,6 +23,14 @@
     "pdf": {
       "ru": "Скачать PDF",
       "en": "Download PDF"
+    },
+    "hideHint": {
+      "ru": "Скрыть подсказку",
+      "en": "Hide the hint"
+    },
+    "enlarge": {
+      "ru": "Увеличить фото",
+      "en": "Enlarge the photo"
     }
   },
   "items": [

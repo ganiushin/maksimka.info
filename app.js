@@ -233,6 +233,8 @@ const coverNode = (project) => {
   cover.classList.toggle("is-contained", project.fit === "contain");
 
   const image = el("img");
+  image.loading = "lazy"; // covers sit at the bottom of a long page
+  image.decoding = "async";
   image.src = versioned(t(slides[0].src));
   image.alt = t(project.title);
   image.addEventListener("error", () => cover.remove(), { once: true });
@@ -451,8 +453,12 @@ const render = () => {
   renderResume();
   renderProjects();
   document.querySelectorAll(".lang-button").forEach((button) => {
-    button.classList.toggle("is-active", button.dataset.lang === state.lang);
-  });  const pdf = $("#pdf-link");
+    const active = button.dataset.lang === state.lang;
+    button.classList.toggle("is-active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+  $("#navigator-close").setAttribute("aria-label", t(state.projects.ui.hideHint));
+  $("#portrait-button").setAttribute("aria-label", t(state.projects.ui.enlarge));  const pdf = $("#pdf-link");
   pdf.textContent = t(state.projects.ui.pdf);
   pdf.href = versioned(`./assets/resume-${state.lang}.pdf`);
   pdf.setAttribute("download", `${state.resume[state.lang].fullName}.pdf`);
