@@ -197,10 +197,11 @@ h2 {
    the first job is the start line. */
 
 .timeline {
-  --road: 34px;
+  --road: 46px;
   --road-gap: 62px;
+  --rover: 30px;
   position: relative;
-  padding: 52px 0 30px calc(var(--road) + var(--road-gap));
+  padding: 72px 0 34px calc(var(--road) + var(--road-gap));
   display: grid;
   gap: 40px;
 }
@@ -210,15 +211,15 @@ h2 {
   position: absolute;
   inset: 0 auto 0 0;
   width: var(--road);
-  border-radius: 5px;
+  border-radius: 6px;
   background:
     linear-gradient(
       90deg,
-      transparent 3px,
-      #fff 3px 5px,
-      transparent 5px calc(100% - 5px),
-      #fff calc(100% - 5px) calc(100% - 3px),
-      transparent calc(100% - 3px)
+      transparent 4px,
+      #fff 4px 6px,
+      transparent 6px calc(100% - 6px),
+      #fff calc(100% - 6px) calc(100% - 4px),
+      transparent calc(100% - 4px)
     ),
     var(--asphalt);
 }
@@ -226,20 +227,20 @@ h2 {
 .timeline::after {
   content: "";
   position: absolute;
-  inset: 46px auto 30px calc(var(--road) / 2 - 1px);
-  width: 2px;
-  background: repeating-linear-gradient(to bottom, var(--marking) 0 12px, transparent 12px 26px);
+  inset: 66px auto 34px calc(var(--road) / 2 - 1.5px);
+  width: 3px;
+  background: repeating-linear-gradient(to bottom, var(--marking) 0 14px, transparent 14px 30px);
 }
 
 .timeline-rover {
   position: absolute;
   z-index: 2;
   top: 8px;
-  left: calc(var(--road) / 2 - 10px);
-  width: 20px;
+  left: calc(var(--road) / 2 - var(--rover) / 2);
+  width: var(--rover);
 }
 
-/* The rover is a 20px icon that only moves when the reader scrolls, so its
+/* The rover is a small icon that only moves when the reader scrolls, so its
    turn-around is shown even with "reduce motion" on; larger effects stay gated. */
 .timeline-rover svg {
   transition: transform 0.5s ease-in-out;
@@ -263,10 +264,10 @@ h2 {
   position: absolute;
   z-index: 1;
   bottom: 8px;
-  left: 5px;
-  width: calc(var(--road) - 10px);
-  height: 12px;
-  background: repeating-conic-gradient(#fff 0 25%, var(--asphalt) 0 50%) 0 0 / 12px 12px;
+  left: 6px;
+  width: calc(var(--road) - 12px);
+  height: 17px;
+  background: repeating-conic-gradient(#fff 0 25%, var(--asphalt) 0 50%) 0 0 / 17px 17px;
 }
 
 .timeline-item {
@@ -279,11 +280,11 @@ h2 {
   position: absolute;
   z-index: 1;
   top: 4px;
-  left: calc(-1 * (var(--road) + var(--road-gap)) + 5px);
-  width: calc(var(--road) - 10px);
-  height: 18px;
+  left: calc(-1 * (var(--road) + var(--road-gap)) + 6px);
+  width: calc(var(--road) - 12px);
+  height: 22px;
   background:
-    repeating-linear-gradient(90deg, #fff 0 3px, transparent 3px 6px),
+    repeating-linear-gradient(90deg, #fff 0 4px, transparent 4px 8px),
     var(--asphalt);
 }
 
@@ -651,8 +652,9 @@ h2 {
   }
 
   .timeline {
-    --road: 26px;
+    --road: 34px;
     --road-gap: 50px;
+    --rover: 22px;
   }
 
   .timeline-sign {

@@ -187,7 +187,7 @@
         "href": "mailto:M.Ganyushin@gmail.com"
       }
     ],
-    "navigatorEgg": "Пасхалка найдена: если ехать медленно, можно и задним ходом."
+    "navigatorEgg": "Если ехать медленно, можно и задним ходом."
   },
   "en": {
     "fullName": "Maksim Ganyushin",
@@ -377,6 +377,6 @@
         "href": "mailto:M.Ganyushin@gmail.com"
       }
     ],
-    "navigatorEgg": "Easter egg found: drive slowly enough and reverse gear will do."
+    "navigatorEgg": "Drive slowly enough and reverse gear will do."
   }
 }
