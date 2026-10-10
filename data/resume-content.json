@@ -155,8 +155,8 @@
     "additional": [
       "Водительские права категорий A и B, личный автомобиль",
       "Готов к командировкам и запуску новых площадок",
-      "Собираю шестиосевую руку-манипулятор MaGaRM: печатные детали, моторы на шине CAN, камера на запястье; проект открыт на github.com/ganiushin",
-      "Умный дом на Home Assistant: локальное распознавание и синтез речи, своя прошивка голосовой колонки; дополнения открыты на GitHub"
+      "Собираю шестиосевую руку-манипулятор [MaGaRM](https://github.com/ganiushin/MaGaRM): печатные детали, моторы на шине CAN, камера на запястье",
+      "Умный дом на Home Assistant: [локальное распознавание и синтез речи](https://github.com/ganiushin/parakeet-stt-silero-tts-addons-haos), [своя прошивка голосовой колонки](https://github.com/ganiushin/voice-pe-firmware)"
     ],
     "navigator": [
       {
@@ -349,8 +349,8 @@
     "additional": [
       "Driving license, categories A and B; own car",
       "Open to business trips and launching new sites",
-      "Building MaGaRM, a six-axis robot arm: printed parts, motors on a CAN bus, a wrist camera; the project is open at github.com/ganiushin",
-      "Smart home on Home Assistant: local speech recognition and synthesis, custom firmware for the voice speaker; the add-ons are open on GitHub"
+      "Building [MaGaRM](https://github.com/ganiushin/MaGaRM), a six-axis robot arm: printed parts, motors on a CAN bus, a wrist camera",
+      "Smart home on Home Assistant: [local speech recognition and synthesis](https://github.com/ganiushin/parakeet-stt-silero-tts-addons-haos), [custom firmware for the voice speaker](https://github.com/ganiushin/voice-pe-firmware)"
     ],
     "navigator": [
       {

@@ -125,7 +125,24 @@ const skillGroupNode = (group) => {
   return row;
 };
 
-const listItems = (items) => items.map((item) => el("li", "", item));
+// List items may carry links written as [label](https://address).
+const listItems = (items) =>
+  items.map((item) => {
+    const li = el("li");
+    item.split(/(\[[^\]]+\]\(https?:[^)]+\))/).forEach((part) => {
+      const match = part.match(/^\[([^\]]+)\]\((https?:[^)]+)\)$/);
+      if (!match) {
+        li.append(part);
+        return;
+      }
+      const link = el("a", "", match[1]);
+      link.href = match[2];
+      link.target = "_blank";
+      link.rel = "noreferrer noopener";
+      li.append(link);
+    });
+    return li;
+  });
 
 const renderResume = () => {
   const content = state.resume[state.lang];

@@ -29,8 +29,18 @@ def ru(value):
     return value if isinstance(value, str) else value.get("ru", "")
 
 
+def rich(text):
+    """Escape the text and turn [label](https://address) into a link."""
+    parts = re.split(r"(\[[^\]]+\]\(https?:[^)]+\))", text)
+    out = []
+    for part in parts:
+        match = re.fullmatch(r"\[([^\]]+)\]\((https?:[^)]+)\)", part)
+        out.append(f'<a href="{escape(match[2])}">{escape(match[1])}</a>' if match else escape(part))
+    return "".join(out)
+
+
 def items(values):
-    return "".join(f"<li>{escape(v)}</li>" for v in values)
+    return "".join(f"<li>{rich(v)}</li>" for v in values)
 
 
 def experience(job):
