@@ -1,10 +1,19 @@
 #!/usr/bin/env python3
-"""Write the Russian resume text into index.html so search engines see it without running JavaScript.
+"""Prepare the site for publishing:  python3 prerender.py
 
-Run after editing data/*.json and before publishing:  python3 prerender.py
-The page script replaces this static copy with the live render, so readers never notice it.
-Also refreshes the date in sitemap.xml.
+1. Writes the Russian resume text into index.html, so search engines see it without JavaScript
+   (the page script replaces this static copy with the live render).
+2. Stamps a build id onto the page, styles.css, app.js and the portrait, and writes it to
+   version.txt. Browsers then fetch fresh files after every publish, and an open or cached
+   page reloads itself when it sees a newer version.txt.
+3. Prints the page to assets/resume-ru.pdf and assets/resume-en.pdf with headless Chrome.
+4. Refreshes the date in sitemap.xml.
 """
+import hashlib
+import subprocess
+import threading
+from functools import partial
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 import json
 import re
 from datetime import date
@@ -73,14 +82,28 @@ blocks = {
     "projects-list": "".join(project(entry) for entry in projects["items"]),
 }
 
+# Build id: changes whenever anything the reader can see changes.
+digest = hashlib.sha256()
+for path in sorted(
+    [ROOT / "app.js", ROOT / "styles.css", *(ROOT / "data").glob("*.json"), *(ROOT / "assets/media").glob("*")]
+):
+    if path.is_file():
+        digest.update(path.name.encode())
+        digest.update(path.read_bytes())
+build = digest.hexdigest()[:10]
+
 index = ROOT / "index.html"
 html = index.read_text(encoding="utf-8")
+html = re.sub(r'(<meta name="build" content=")[^"]*(")', rf"\g<1>{build}\g<2>", html)
+html = re.sub(r"((?:styles\.css|app\.js|portrait\.jpg)\?v=)[\w-]+", rf"\g<1>{build}", html)
 for name, content in blocks.items():
     pattern = re.compile(rf"(<!--prerender:{re.escape(name)}-->).*?(<!--/prerender:{re.escape(name)}-->)", re.S)
     html, count = pattern.subn(lambda m: m.group(1) + content + m.group(2), html)
     if count != 1:
         raise SystemExit(f"marker for {name!r} found {count} times in index.html")
 index.write_text(html, encoding="utf-8")
+
+(ROOT / "version.txt").write_text(build + "\n", encoding="utf-8")
 
 (ROOT / "sitemap.xml").write_text(
     '<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -89,4 +112,44 @@ index.write_text(html, encoding="utf-8")
     "</urlset>\n",
     encoding="utf-8",
 )
-print(f"prerendered {len(blocks)} blocks, sitemap dated {date.today().isoformat()}")
+print(f"prerendered {len(blocks)} blocks, build {build}, sitemap dated {date.today().isoformat()}")
+
+
+# PDF copies of the resume, printed from the page itself so they always match it.
+CHROME = Path("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
+
+
+class QuietHandler(SimpleHTTPRequestHandler):
+    def log_message(self, *args):
+        pass
+
+
+def print_pdfs():
+    if not CHROME.exists():
+        print("Chrome not found: PDF files were not regenerated")
+        return
+    server = ThreadingHTTPServer(("127.0.0.1", 0), partial(QuietHandler, directory=str(ROOT)))
+    threading.Thread(target=server.serve_forever, daemon=True).start()
+    try:
+        for lang in ("ru", "en"):
+            target = ROOT / f"assets/resume-{lang}.pdf"
+            subprocess.run(
+                [
+                    str(CHROME),
+                    "--headless=new",
+                    "--disable-gpu",
+                    "--no-pdf-header-footer",
+                    "--virtual-time-budget=8000",
+                    f"--print-to-pdf={target}",
+                    f"http://127.0.0.1:{server.server_port}/?lang={lang}",
+                ],
+                check=True,
+                capture_output=True,
+                timeout=120,
+            )
+            print(f"{target.relative_to(ROOT)}: {target.stat().st_size // 1024} KB")
+    finally:
+        server.shutdown()
+
+
+print_pdfs()

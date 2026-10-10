@@ -187,7 +187,8 @@
         "href": "mailto:M.Ganyushin@gmail.com"
       }
     ],
-    "navigatorEgg": "Если ехать медленно, можно и задним ходом."
+    "navigatorEgg": "Если ехать медленно, можно и задним ходом.",
+    "navigatorSpeeding": "Превышение скорости! Так можно проскочить самое интересное."
   },
   "en": {
     "fullName": "Maksim Ganyushin",
@@ -377,6 +378,7 @@
         "href": "mailto:M.Ganyushin@gmail.com"
       }
     ],
-    "navigatorEgg": "Drive slowly enough and reverse gear will do."
+    "navigatorEgg": "Drive slowly enough and reverse gear will do.",
+    "navigatorSpeeding": "Speed limit exceeded! You might miss the best part."
   }
 }

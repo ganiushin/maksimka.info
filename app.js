@@ -3,8 +3,15 @@ const DATA_PATHS = {
   projects: "./data/projects.json",
 };
 
+// Stamp written into index.html by prerender.py; it changes with every publish.
+const BUILD = document.querySelector('meta[name="build"]')?.content ?? "dev";
+
+// Media files keep their names between publishes, so the stamp goes on the URL
+// to stop browsers showing a cached older picture.
+const versioned = (path) => `${path}?v=${BUILD}`;
+
 const state = {
-  lang: "ru",
+  lang: new URLSearchParams(location.search).get("lang") === "en" ? "en" : "ru",
   resume: null,
   projects: null,
 };
@@ -172,7 +179,7 @@ const showSlide = (index) => {
   const count = viewer.slides.length;
   viewer.index = (index + count) % count;
   const slide = viewer.slides[viewer.index];
-  viewer.image.src = t(slide.src);
+  viewer.image.src = versioned(t(slide.src));
   viewer.image.alt = t(slide.caption);
   viewer.caption.textContent = t(slide.caption);
   viewer.counter.textContent = count > 1 ? `${viewer.index + 1} / ${count}` : "";
@@ -223,7 +230,7 @@ const coverNode = (project) => {
   cover.classList.toggle("is-contained", project.fit === "contain");
 
   const image = el("img");
-  image.src = t(slides[0].src);
+  image.src = versioned(t(slides[0].src));
   image.alt = t(project.title);
   image.addEventListener("error", () => cover.remove(), { once: true });
   cover.append(image);
@@ -271,7 +278,7 @@ const renderProjects = () => {
 /* Navigator: a road-sign chip whose message changes as the reader scrolls,
    and the rover that drives along the experience road. */
 
-const guide = { chip: $("#navigator"), text: $("#navigator-text"), index: -1, dismissed: false };
+const guide = { chip: $("#navigator"), text: $("#navigator-text"), index: -1, dismissed: false, holdUntil: 0 };
 
 const showOnChip = (stop) => {
   if (guide.dismissed) {
@@ -282,6 +289,7 @@ const showOnChip = (stop) => {
     node.href = stop.href;
   }
   guide.text.replaceChildren(node);
+  guide.chip.classList.toggle("is-warning", Boolean(stop.warning));
   guide.chip.hidden = false;
   guide.chip.classList.remove("is-fresh");
   void guide.chip.offsetWidth; // restart the highlight animation
@@ -308,8 +316,8 @@ const hasReached = (stop) => {
 
 const updateNavigator = () => {
   const stops = state.resume?.[state.lang].navigator;
-  if (!stops || guide.dismissed) {
-    return;
+  if (!stops || guide.dismissed || performance.now() < guide.holdUntil) {
+    return; // a warning on the chip is not replaced until it has been read
   }
   let index = 0;
   stops.forEach((stop, i) => {
@@ -377,6 +385,31 @@ const updateRover = () => {
   rover.firstElementChild.style.transform = `rotate(${roverState.heading}deg)`;
 };
 
+// Scroll far too fast and the chip turns into a speeding warning for a few seconds.
+const SPEED_LIMIT = 5; // px per ms of page scroll
+const speedTrap = { y: 0, time: 0, quietUntil: 0, timer: 0 };
+
+const checkSpeed = () => {
+  const now = performance.now();
+  const distance = Math.abs(window.scrollY - speedTrap.y);
+  const speed = distance / Math.max(now - speedTrap.time, 1);
+  speedTrap.y = window.scrollY;
+  speedTrap.time = now;
+
+  if (speed < SPEED_LIMIT || distance < 250 || now < speedTrap.quietUntil || guide.dismissed) {
+    return;
+  }
+  speedTrap.quietUntil = now + 10000;
+  guide.holdUntil = now + 4000;
+  showOnChip({ text: state.resume[state.lang].navigatorSpeeding, warning: true });
+  clearTimeout(speedTrap.timer);
+  speedTrap.timer = setTimeout(() => {
+    guide.holdUntil = 0;
+    guide.index = -1; // put the regular message for this place back
+    updateNavigator();
+  }, 4000);
+};
+
 const attachScrollHandlers = () => {
   let queued = false;
   const onScroll = () => {
@@ -388,6 +421,7 @@ const attachScrollHandlers = () => {
       queued = false;
       updateNavigator();
       updateRover();
+      checkSpeed();
     });
   };
   window.addEventListener("scroll", onScroll, { passive: true });
@@ -405,9 +439,32 @@ const render = () => {
   renderProjects();
   document.querySelectorAll(".lang-button").forEach((button) => {
     button.classList.toggle("is-active", button.dataset.lang === state.lang);
-  });  guide.index = -1;
+  });  const pdf = $("#pdf-link");
+  pdf.textContent = t(state.projects.ui.pdf);
+  pdf.href = versioned(`./assets/resume-${state.lang}.pdf`);
+  pdf.setAttribute("download", `${state.resume[state.lang].fullName}.pdf`);
+  guide.holdUntil = 0;
+  guide.index = -1;
   updateNavigator();
   updateRover();
+};
+
+// GitHub Pages lets browsers keep the page for ten minutes. If a newer build is
+// already published, reload once so a returning reader is not shown a stale page.
+const reloadIfStale = async () => {
+  try {
+    const response = await fetch("./version.txt", { cache: "no-store" });
+    if (!response.ok) {
+      return;
+    }
+    const latest = (await response.text()).trim();
+    if (latest && latest !== BUILD && sessionStorage.getItem("reloaded-for") !== latest) {
+      sessionStorage.setItem("reloaded-for", latest);
+      location.reload();
+    }
+  } catch {
+    // offline or blocked storage: keep showing what we have
+  }
 };
 
 const loadJson = async (path) => {
@@ -432,9 +489,10 @@ const bootstrap = async () => {
   });
   attachViewerHandlers();
   attachScrollHandlers();
+  reloadIfStale();
   $("#portrait-button").addEventListener("click", () => {
     const portrait = $("#portrait-button img");
-    openViewer([{ src: portrait.getAttribute("src"), caption: state.resume[state.lang].fullName }]);
+    openViewer([{ src: portrait.getAttribute("src").split("?")[0], caption: state.resume[state.lang].fullName }]);
   });
   render();
 };

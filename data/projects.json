@@ -19,6 +19,10 @@
     "next": {
       "ru": "Следующее фото",
       "en": "Next photo"
+    },
+    "pdf": {
+      "ru": "Скачать PDF",
+      "en": "Download PDF"
     }
   },
   "items": [
