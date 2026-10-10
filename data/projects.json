@@ -1,0 +1,356 @@
+{
+  "ui": {
+    "title": {
+      "ru": "Проекты и публикации",
+      "en": "Projects and press"
+    },
+    "photos": {
+      "ru": "фото",
+      "en": "photos"
+    },
+    "close": {
+      "ru": "Закрыть",
+      "en": "Close"
+    },
+    "prev": {
+      "ru": "Предыдущее фото",
+      "en": "Previous photo"
+    },
+    "next": {
+      "ru": "Следующее фото",
+      "en": "Next photo"
+    }
+  },
+  "items": [
+    {
+      "label": {
+        "ru": "Яндекс, октябрь 2023",
+        "en": "Yandex, October 2023"
+      },
+      "title": {
+        "ru": "Иннополис: первый проезд без человека в салоне",
+        "en": "Innopolis: the first ride with nobody in the car"
+      },
+      "description": {
+        "ru": "Беспилотный автомобиль прошел 50 км по городу без водителя-испытателя в салоне. Проезд зафиксирован в рамках экспериментального правового режима (ЭПР) и открыл финальный этап испытаний.",
+        "en": "A self-driving car covered 50 km around the city with no safety driver inside. The ride was recorded under the experimental legal regime and opened the final stage of testing."
+      },
+      "links": [
+        {
+          "url": "https://inkazan.ru/news/2023-10-25/iz-salona-bespilotnogo-taksi-v-innopolise-ischez-muzhchina-3080383",
+          "text": {
+            "ru": "Inkazan: 50 км по Иннополису без водителя-испытателя",
+            "en": "Inkazan: 50 km around Innopolis with no safety driver"
+          }
+        },
+        {
+          "url": "https://www.interfax.ru/russia/927490",
+          "text": {
+            "ru": "Интерфакс: «Яндекс» начал тестировать беспилотные авто без водителя в салоне",
+            "en": "Interfax: Yandex begins testing self-driving cars with no driver inside"
+          }
+        }
+      ],
+      "gallery": [
+        {
+          "src": "./assets/media/innopolis-cabin.jpg",
+          "caption": {
+            "ru": "Иннополис: автомобиль едет сам, за рулем и в салоне никого.",
+            "en": "Innopolis: the car drives itself, with nobody at the wheel or in the cabin."
+          }
+        },
+        {
+          "src": "./assets/media/innopolis-car.jpg",
+          "caption": {
+            "ru": "Беспилотный автомобиль на улицах Иннополиса.",
+            "en": "The self-driving car on the streets of Innopolis."
+          }
+        },
+        {
+          "src": "./assets/media/innopolis-road.jpg",
+          "caption": {
+            "ru": "Проезд по городу в общем потоке.",
+            "en": "Driving through the city in regular traffic."
+          }
+        }
+      ]
+    },
+    {
+      "label": {
+        "ru": "Яндекс, август 2023",
+        "en": "Yandex, August 2023"
+      },
+      "title": {
+        "ru": "Москва, Ясенево: поездки без водителя за рулем",
+        "en": "Moscow, Yasenevo: rides with no driver behind the wheel"
+      },
+      "description": {
+        "ru": "Новый этап испытаний в Ясеневе: водитель-испытатель пересел с водительского места на пассажирское и может остановить машину одной кнопкой E-stop. Запуск готовила служба тестирования; в ролике Яндекса рассказываю, как устроен этот этап.",
+        "en": "A new stage of testing in Yasenevo: the test engineer moved from the driver's seat to the passenger seat and can stop the car with a single E-stop button. The launch was prepared by the testing department; in Yandex's video I explain how this stage works."
+      },
+      "links": [
+        {
+          "url": "https://www.instagram.com/p/CvhhzXmNhs6/",
+          "text": {
+            "ru": "Instagram Яндекса: видео о запуске без водителя за рулем",
+            "en": "Yandex on Instagram: video about the launch with no driver behind the wheel"
+          }
+        },
+        {
+          "url": "https://yandex.ru/company/news/07-06-23",
+          "text": {
+            "ru": "Яндекс: запуск роботакси в Москве",
+            "en": "Yandex: robotaxi launch in Moscow"
+          }
+        },
+        {
+          "url": "https://rozetked.me/news/29966-yandeks-nachal-testirovanie-bespilotnogo-taksi-bez-voditelya-za-rulem",
+          "text": {
+            "ru": "Rozetked: «Яндекс» начал тестирование такси без водителя за рулем",
+            "en": "Rozetked: Yandex begins testing a taxi with no driver behind the wheel"
+          }
+        }
+      ],
+      "gallery": [
+        {
+          "src": "./assets/media/yasenevo-cabin.jpg",
+          "caption": {
+            "ru": "Ясенево: водительское место пустое, испытатель сидит на пассажирском.",
+            "en": "Yasenevo: the driver's seat is empty, the test engineer sits in the passenger seat."
+          }
+        },
+        {
+          "src": "./assets/media/yasenevo-reel.jpg",
+          "caption": {
+            "ru": "Кадр из ролика Яндекса о новом этапе испытаний.",
+            "en": "A frame from Yandex's video about the new stage of testing."
+          }
+        },
+        {
+          "src": "./assets/media/yasenevo-car.jpg",
+          "caption": {
+            "ru": "Беспилотный автомобиль Яндекса в Москве.",
+            "en": "A Yandex self-driving car in Moscow."
+          }
+        }
+      ]
+    },
+    {
+      "label": {
+        "ru": "Яндекс Образование, 2026",
+        "en": "Yandex Education, 2026"
+      },
+      "title": {
+        "ru": "Кубок Яндекс Образования",
+        "en": "Yandex Education Cup"
+      },
+      "description": {
+        "ru": "Соревнование по программированию роботов-курьеров, март 2026. Кубок готовили Яндекс Образование и партнеры; моя часть — софт робота, платформа для участников и симулятор. Код открыт на GitHub.",
+        "en": "A competition in programming courier robots, March 2026. The Cup was prepared by Yandex Education and its partners; my part was the robot software, the participant platform and the simulator. The code is open on GitHub."
+      },
+      "gallery": [
+        {
+          "src": "./assets/media/yandex-cup-robot.jpg",
+          "caption": {
+            "ru": "Олимпиадный робот-курьер на полигоне: камера, датчики линии и дальномер.",
+            "en": "The competition courier robot on the field: camera, line sensors and a rangefinder."
+          }
+        },
+        {
+          "src": "./assets/media/yandex-cup-2.jpg",
+          "caption": {
+            "ru": "С участниками кубка у полигона.",
+            "en": "With Cup participants at the field."
+          }
+        },
+        {
+          "src": "./assets/media/yandex-cup-platform.jpg",
+          "caption": {
+            "ru": "Веб-платформа, в которой участники программируют робота и обучают нейросеть.",
+            "en": "The web platform where participants program the robot and train a neural network."
+          }
+        },
+        {
+          "src": "./assets/media/yandex-cup-5.jpg",
+          "caption": {
+            "ru": "Зал кубка: несколько полигонов, участники работают одновременно.",
+            "en": "The Cup hall: several fields, with participants working at the same time."
+          }
+        },
+        {
+          "src": "./assets/media/yandex-cup-3.jpg",
+          "caption": {
+            "ru": "Участники отлаживают программы: роботы едут по городскому маршруту с указателями и разметкой.",
+            "en": "Participants debug their programs as the robots drive a city route with signs and road markings."
+          }
+        },
+        {
+          "src": "./assets/media/yandex-cup-4.jpg",
+          "caption": {
+            "ru": "Полигоны кубка: участники запускают роботов на маршруте.",
+            "en": "The Cup fields: participants run their robots on the route."
+          }
+        },
+        {
+          "src": "./assets/media/yandex-cup-winners.jpg",
+          "caption": {
+            "ru": "Награждение: с победителями кубка на сцене.",
+            "en": "Award ceremony: on stage with the Cup winners."
+          }
+        },
+        {
+          "src": "./assets/media/yandex-cup.jpg",
+          "caption": {
+            "ru": "Церемония награждения, март 2026.",
+            "en": "The award ceremony, March 2026."
+          }
+        }
+      ],
+      "links": [
+        {
+          "url": "https://github.com/YandexEducation/robot",
+          "text": {
+            "ru": "Код на GitHub",
+            "en": "Code on GitHub"
+          }
+        }
+      ]
+    },
+    {
+      "label": {
+        "ru": "Свой проект, 2026",
+        "en": "Own project, 2026"
+      },
+      "title": {
+        "ru": "Am I OK",
+        "en": "Am I OK"
+      },
+      "description": {
+        "ru": "Все данные о здоровье на одной платформе: сервис собирает анализы, данные трекеров и привычки в одну картину, а AI превращает их в понятные рекомендации, квесты и пошаговый план.",
+        "en": "Your whole health picture in one place: the service brings lab results, tracker data and habits together, and AI turns them into clear recommendations, quests and a step-by-step plan."
+      },
+      "src": {
+        "ru": "./assets/media/amiok-ru.png",
+        "en": "./assets/media/amiok-en.png"
+      },
+      "links": [
+        {
+          "url": "https://amiok.pro",
+          "text": "amiok.pro"
+        }
+      ]
+    },
+    {
+      "label": {
+        "ru": "АТОМ, 2024–2025",
+        "en": "ATOM, 2024–2025"
+      },
+      "title": {
+        "ru": "Автопилот АТОМа на трассе Москва — Казань",
+        "en": "ATOM autopilot on the Moscow–Kazan highway"
+      },
+      "description": {
+        "ru": "Тестовый автомобиль с системой помощи водителю проехал 732 км, 95% пути — без участия оператора.",
+        "en": "A test vehicle with the driver assistance system covered 732 km, 95% of it with no operator input."
+      },
+      "links": [
+        {
+          "url": "https://auto.ru/mag/article/avtopilot-dlya-elektrokara-atom-ispytali-na-trasse-moskvakazan/",
+          "text": {
+            "ru": "Авто.ру: автопилот испытали на трассе Москва — Казань",
+            "en": "Auto.ru: autopilot tested on the Moscow–Kazan highway"
+          }
+        }
+      ],
+      "src": "./assets/media/atom-route.jpg",
+      "fit": "contain"
+    },
+    {
+      "label": {
+        "ru": "РобоФинист, октябрь 2026",
+        "en": "RoboFinist, October 2026"
+      },
+      "title": {
+        "ru": "«Рободоставка: городская миссия»",
+        "en": "Robo-Delivery: City Mission"
+      },
+      "description": {
+        "ru": "Соревнование для школьников 12–15 лет: робот-курьер забирает груз, доставляет его по адресу и возвращается, соблюдая дорожную обстановку. Вместе с Яндекс Образованием и РобоФинистом подготовили регламент, полигон, критерии судейства и эталонное решение; участвовал в судействе. Финал прошел 3 октября 2026 года в Кронштадте. Фото: Лана Халявина.",
+        "en": "A competition for students aged 12–15: a courier robot picks up a parcel, delivers it to an address and returns while following the road rules. Together with Yandex Education and RoboFinist we prepared the rules, the field, the judging criteria and a reference solution; I took part in the judging. The final took place on October 3, 2026 in Kronstadt. Photos: Lana Khalyavina."
+      },
+      "links": [],
+      "gallery": [
+        {
+          "src": "./assets/media/robofinist-field.jpg",
+          "caption": {
+            "ru": "Полигон «Рободоставки»: робот на старте, впереди перекресток, указатели и зоны доставки.",
+            "en": "The Robo-Delivery field: a robot at the start, with the intersection, signs and delivery zones ahead."
+          }
+        },
+        {
+          "src": "./assets/media/robofinist-robot-finish.jpg",
+          "caption": {
+            "ru": "Робот на финише маршрута.",
+            "en": "A robot at the finish of the route."
+          }
+        },
+        {
+          "src": "./assets/media/robofinist-fleet.jpg",
+          "caption": {
+            "ru": "Роботы финала перед выдачей участникам.",
+            "en": "The robots for the final before being handed out to participants."
+          }
+        },
+        {
+          "src": "./assets/media/robofinist-judging-1.jpg",
+          "caption": {
+            "ru": "Судейство заезда у полигона.",
+            "en": "Judging a run at the field."
+          }
+        },
+        {
+          "src": "./assets/media/robofinist-judging-2.jpg",
+          "caption": {
+            "ru": "Разбор попытки с участником.",
+            "en": "Going over an attempt with a participant."
+          }
+        },
+        {
+          "src": "./assets/media/robofinist-protocol.jpg",
+          "caption": {
+            "ru": "Протокол заезда по критериям судейской системы.",
+            "en": "The run protocol, filled in against the judging criteria."
+          }
+        },
+        {
+          "src": "./assets/media/robofinist-participants.jpg",
+          "caption": {
+            "ru": "Участники отлаживают программы на полигоне.",
+            "en": "Participants debugging their programs at the field."
+          }
+        },
+        {
+          "src": "./assets/media/robofinist-signs.jpg",
+          "caption": {
+            "ru": "Указатели на трассе: робот распознает их камерой.",
+            "en": "Signs on the course: the robot recognizes them with its camera."
+          }
+        },
+        {
+          "src": "./assets/media/robofinist-stand.jpg",
+          "caption": {
+            "ru": "Площадка «Городской миссии» Яндекс Образования на РобоФинисте.",
+            "en": "The Yandex Education City Mission area at RoboFinist."
+          }
+        },
+        {
+          "src": "./assets/media/robofinist-field.png",
+          "caption": {
+            "ru": "Схема полигона 2 × 2 м для финала.",
+            "en": "The 2 × 2 m field layout for the final."
+          }
+        }
+      ]
+    }
+  ]
+}

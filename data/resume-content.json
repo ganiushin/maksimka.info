@@ -1,0 +1,300 @@
+{
+  "ru": {
+    "fullName": "Ганюшин Максим Владимирович",
+    "headline": "QA Lead — автономный транспорт и робототехника",
+    "contacts": [
+      "+7 (925) 098-09-88",
+      "M.Ganyushin@gmail.com",
+      "Москва, Россия",
+      "Полная занятость • Офис/Удаленно • Командировки возможны"
+    ],
+    "sectionTitles": {
+      "profile": "Профиль",
+      "experience": "Опыт работы",
+      "skills": "Ключевые навыки",
+      "languages": "Языки",
+      "education": "Образование",
+      "additional": "Дополнительно"
+    },
+    "profile": "16 лет в IT, из них восемь — в тестировании автономных систем. В Яндексе вырос от инженера до руководителя службы тестирования беспилотных автомобилей, которая готовила первые проезды без водителя за рулем в Иннополисе и Москве. Последние полтора года занимаюсь софтом для образовательных роботов Яндекса — от прошивки до заводской приемки — и развиваю сервис данных о здоровье amiok.pro.",
+    "experience": [
+      {
+        "period": "Июн 2026 — н.в.",
+        "role": "Основатель",
+        "company": "Am I OK (amiok.pro) • велнес-сервис: все данные о здоровье в одном месте",
+        "points": [
+          "Запустил сервис, который разбирает анализы с фото и PDF, собирает данные с носимых трекеров, показывает динамику показателей и подсказывает, как стать лучше.",
+          "Развернул языковую модель на своих серверах, для изоляции медицинских данных.",
+          "Подключил RAG: перед ответом модель получает фрагменты из медицинской базы знаний.",
+          "Обучил LoRA поверх SDXL для раздела с персонажами и квестами; генерации принимаю по метрикам эталона.",
+          "Стек: React, Django, PostgreSQL, Docker; CI/CD на GitHub с автотестами на отдельном тестовом сервере."
+        ]
+      },
+      {
+        "period": "Июн 2025 — н.в.",
+        "role": "Разработка софта для образовательных роботов и олимпиад по робототехнике",
+        "company": "ИП, проект под ключ в партнерстве с Яндексом • Москва",
+        "points": [
+          "Разрабатываю софт серийного робота для образовательной платформы Яндекса: прошивки двух процессоров (ESP32-S3 и GD32), движение, камера, звук, датчики, Bluetooth и Wi-Fi.",
+          "Участвую в ревью железа и согласовании протокола между роботом и платформой.",
+          "Сделал приемочный стенд для сборочной линии: каждый робот проходит автоматический стресс-тест, результаты записываются в память робота и дублируются на внешний сервер.",
+          "К Кубку Яндекс Образования собрал и настроил роботов, сделал веб-платформу для обучения нейросети и симулятор с редактором карт. Код открыт на GitHub.",
+          "Вместе с Яндекс Образованием и РобоФинистом провели финал соревнований «Рободоставка» для школьников 12–15 лет; работал над регламентом, полигоном и критериями судейства."
+        ]
+      },
+      {
+        "period": "Авг 2024 — Апр 2025",
+        "role": "QA-инженер",
+        "company": "АО КАМА (АТОМ) • Москва",
+        "points": [
+          "Наладил релизный процесс и тестирование функций ADAS вместе со смежными отделами.",
+          "Прошел аудит ASPICE и вместе с командой перестроил процессы тестирования по его рекомендациям.",
+          "Запустил автотесты и метрики качества функций.",
+          "Подготовил и провел тестовый проезд Москва — Казань, затем организовал испытания и оценку качества технологии."
+        ]
+      },
+      {
+        "period": "Май 2018 — Авг 2024",
+        "role": "Руководитель службы тестирования беспилотных автомобилей",
+        "company": "Яндекс • Москва",
+        "points": [
+          "Вырос от инженера по тестированию до руководителя службы.",
+          "Вместе с командой выстроил релизный цикл: каждый релиз системы автономного вождения ежедневно проверялся в симуляторе и на автомобилях.",
+          "С нуля организовали тестирование в симуляторе, тестирование роботов-доставщиков и встраиваемых систем — от промежуточных контроллеров управления до лидаров.",
+          "Участвовал в запуске площадок в Иннополисе, Сколково, Москве, Тель-Авиве и Ясеневе и коммерческого маршрута на трассе М4: от проработки маршрута до процессов тестирования для безопасного запуска.",
+          "Подготовил первый проезд без человека в салоне: 50 км по Иннополису в октябре 2023 года, зафиксирован в экспериментальном правовом режиме (ЭПР).",
+          "Вывели на дороги Москвы первые машины без водителя за рулем и запустили роботакси в Ясеневе."
+        ]
+      },
+      {
+        "period": "Май 2010 — Май 2018",
+        "role": "Тестирование, инфраструктура и техническая поддержка",
+        "company": "QIWI, Московско-Парижский банк, Смоленский банк, МКБ • Москва",
+        "points": [
+          "QIWI (2017–2018): проводил системное тестирование, писал тест-кейсы и автотесты, участвовал в релизах.",
+          "Московско-Парижский банк (2014–2017): отвечал за серверы, VPN и сеть банкоматов и терминалов.",
+          "Смоленский банк (2012–2014): руководил отделом технической поддержки из 20 человек.",
+          "МКБ (2010–2012): с нуля настроил и обслуживал сеть платежных терминалов."
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "title": "Управление",
+        "items": [
+          "QA Leadership",
+          "Team Management",
+          "Release Management",
+          "KPI & Metrics"
+        ]
+      },
+      {
+        "title": "Тестирование",
+        "items": [
+          "ADAS Testing",
+          "Autonomous Driving",
+          "Factory Acceptance Testing",
+          "Regression Testing",
+          "Functional Testing"
+        ]
+      },
+      {
+        "title": "Робототехника и embedded",
+        "items": [
+          "ESP32, GD32",
+          "ESP-IDF",
+          "MicroPython",
+          "BLE",
+          "ROS",
+          "MuJoCo"
+        ]
+      },
+      {
+        "title": "AI и машинное обучение",
+        "items": [
+          "LLM (llama.cpp, vLLM)",
+          "RAG",
+          "Fine-tuning / LoRA",
+          "TinyML / TFLite"
+        ]
+      },
+      {
+        "title": "Разработка и инфраструктура",
+        "items": [
+          "Python",
+          "SQL",
+          "Django",
+          "React",
+          "Bash",
+          "Docker Compose",
+          "CI/CD",
+          "Git",
+          "Linux",
+          "KVM / VMware / Proxmox",
+          "Jira"
+        ]
+      }
+    ],
+    "languages": [
+      "Русский — родной",
+      "Английский — B1 (рабочий)"
+    ],
+    "education": [
+      "Поволжская государственная академия телекоммуникаций и информатики, прикладная информатика в экономике — высшее, 2014",
+      "Колледж вычислительной техники и электроники, программное обеспечение вычислительной техники — среднее специальное, 2008"
+    ],
+    "additional": [
+      "Водительские права категорий A и B, личный автомобиль",
+      "Готов к командировкам и запуску новых площадок"
+    ]
+  },
+  "en": {
+    "fullName": "Maksim Ganyushin",
+    "headline": "QA Lead — autonomous transport and robotics",
+    "contacts": [
+      "+7 (925) 098-09-88",
+      "M.Ganyushin@gmail.com",
+      "Moscow, Russia",
+      "Full-time • On-site/Remote • Open to business trips"
+    ],
+    "sectionTitles": {
+      "profile": "Profile",
+      "experience": "Work Experience",
+      "skills": "Core Skills",
+      "languages": "Languages",
+      "education": "Education",
+      "additional": "Additional Information"
+    },
+    "profile": "16 years in IT, eight of them testing autonomous systems. At Yandex I grew from engineer to head of the self-driving car testing department, which prepared the first rides with no driver behind the wheel in Innopolis and Moscow. For the past year and a half I have been building software for Yandex's educational robots, from firmware to factory acceptance, and developing the amiok.pro health-data service.",
+    "experience": [
+      {
+        "period": "Jun 2026 — Present",
+        "role": "Founder",
+        "company": "Am I OK (amiok.pro) • wellness service: your whole health picture in one place",
+        "points": [
+          "Launched a service that reads lab results from photos and PDFs, collects data from wearable trackers, shows how values change over time and suggests what to improve.",
+          "Deployed a language model on my own servers (vLLM) so medical data never leaves the service's environment.",
+          "Added RAG: before answering, the model receives passages from a medical knowledge base, which cuts hallucinations.",
+          "Trained a LoRA on top of SDXL for the characters and quests section; I accept generations against reference metrics.",
+          "Stack: React, Django, PostgreSQL, Docker; CI/CD on GitHub with automated tests on a separate test server."
+        ]
+      },
+      {
+        "period": "Jun 2025 — Present",
+        "role": "Software for educational robots and robotics competitions",
+        "company": "Sole proprietor, turnkey project in partnership with Yandex • Moscow",
+        "points": [
+          "Develop the on-robot software of the series-production robot for Yandex's educational platform: firmware for both processors (ESP32-S3 and GD32), motion, camera, audio, sensors, Bluetooth and Wi-Fi.",
+          "Take part in hardware reviews and in agreeing the protocol between the robot and the platform.",
+          "Prepared an acceptance stand for the assembly line: every robot goes through an automated stress test, and the results are stored in the robot's memory and mirrored to an external server.",
+          "For the Yandex Education Cup, assembled and tuned the robots and built a web platform for training a neural network and a simulator with a map editor. The code is open on GitHub.",
+          "Together with Yandex Education and RoboFinist we ran the final of the Robo-Delivery competition for students aged 12–15; I worked on the rules, the field and the judging criteria."
+        ]
+      },
+      {
+        "period": "Aug 2024 — Apr 2025",
+        "role": "QA Engineer",
+        "company": "JSC KAMA (ATOM) • Moscow",
+        "points": [
+          "Set up the release process and ADAS function testing together with adjacent departments.",
+          "Passed the ASPICE audit and, together with the team, reworked the testing processes to follow its recommendations.",
+          "Introduced automated tests and quality metrics for vehicle functions.",
+          "Prepared and ran the Moscow–Kazan test drive, then organized trials and quality assessment of the technology."
+        ]
+      },
+      {
+        "period": "May 2018 — Aug 2024",
+        "role": "Head of Self-Driving Car Testing",
+        "company": "Yandex • Moscow",
+        "points": [
+          "Grew from QA engineer to head of the department.",
+          "Together with the team, built the release cycle: every release of the autonomous driving system was tested daily in the simulator and on vehicles.",
+          "Set up from scratch simulator testing, delivery robot testing and embedded systems testing, from intermediate control units to lidars.",
+          "Took part in launching sites in Innopolis, Skolkovo, Moscow, Tel Aviv and Yasenevo, and a commercial route on the M4 highway: from route planning to test processes for a safe launch.",
+          "Prepared the first ride with nobody in the car: 50 km around Innopolis in October 2023, recorded under Russia's experimental legal regime.",
+          "Put the first cars with no driver behind the wheel on Moscow roads and launched the robotaxi in Yasenevo."
+        ]
+      },
+      {
+        "period": "May 2010 — May 2018",
+        "role": "Testing, infrastructure and technical support",
+        "company": "QIWI, Moscow-Paris Bank, Smolensky Bank, MKB • Moscow",
+        "points": [
+          "QIWI (2017–2018): ran system testing, wrote test cases and automated tests, took part in releases.",
+          "Moscow-Paris Bank (2014–2017): responsible for servers, VPN and the ATM and terminal network.",
+          "Smolensky Bank (2012–2014): led a technical support department of 20 people.",
+          "MKB (2010–2012): set up from scratch and maintained a payment terminal network."
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "title": "Leadership",
+        "items": [
+          "QA Leadership",
+          "Team Management",
+          "Release Management",
+          "KPI & Metrics"
+        ]
+      },
+      {
+        "title": "Testing",
+        "items": [
+          "ADAS Testing",
+          "Autonomous Driving",
+          "Factory Acceptance Testing",
+          "Regression Testing",
+          "Functional Testing"
+        ]
+      },
+      {
+        "title": "Robotics and embedded",
+        "items": [
+          "ESP32, GD32",
+          "ESP-IDF",
+          "MicroPython",
+          "BLE",
+          "ROS",
+          "MuJoCo"
+        ]
+      },
+      {
+        "title": "AI and machine learning",
+        "items": [
+          "LLM (llama.cpp, vLLM)",
+          "RAG",
+          "Fine-tuning / LoRA",
+          "TinyML / TFLite"
+        ]
+      },
+      {
+        "title": "Engineering and infrastructure",
+        "items": [
+          "Python",
+          "SQL",
+          "Django",
+          "React",
+          "Bash",
+          "Docker Compose",
+          "CI/CD",
+          "Git",
+          "Linux",
+          "KVM / VMware / Proxmox",
+          "Jira"
+        ]
+      }
+    ],
+    "languages": [
+      "Russian — native",
+      "English — B1 (professional use)"
+    ],
+    "education": [
+      "Volga State Academy of Telecommunications and Informatics, Applied Informatics in Economics — higher education, 2014",
+      "College of Computing and Electronics, Software for Computer Systems — vocational diploma, 2008"
+    ],
+    "additional": [
+      "Driving license, categories A and B; own car",
+      "Open to business trips and launching new sites"
+    ]
+  }
+}

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Максим Ганюшин — QA Lead</title>
+    <meta name="description" content="QA Lead — автономный транспорт и робототехника. Резюме Максима Ганюшина." />
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content="https://maksimka.info/" />
+    <meta property="og:title" content="Максим Ганюшин — QA Lead" />
+    <meta property="og:description" content="Автономный транспорт и робототехника: Яндекс, АТОМ, образовательные роботы, Am I OK." />
+    <meta property="og:image" content="https://maksimka.info/assets/media/yandex-cup-robot.jpg" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cg transform='rotate(45 16 16)'%3E%3Crect x='5' y='5' width='22' height='22' rx='3' fill='%23fff' stroke='%232b333a' stroke-width='2'/%3E%3Crect x='9.5' y='9.5' width='13' height='13' rx='1.5' fill='%23f5b800'/%3E%3C/g%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geologica:wght@500;600&family=Golos+Text:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bump ?v= on every change to styles.css or app.js so browsers drop the cached copy. -->
+    <link rel="stylesheet" href="./styles.css?v=7" />
+  </head>
+  <body>
+    <header class="page-header">
+      <div class="header-top">
+        <div>
+          <h1 id="full-name"></h1>
+          <p class="role" id="headline"></p>
+        </div>
+        <div class="lang-switcher" role="group" aria-label="Language switch">
+          <button class="lang-button is-active" data-lang="ru">RU</button>
+          <button class="lang-button" data-lang="en">EN</button>
+        </div>
+      </div>
+      <div class="contact-list" id="contacts"></div>
+      <p class="load-error" id="load-error" hidden></p>
+    </header>
+
+    <main class="page-main">
+      <section class="section">
+        <h2 id="profile-title"></h2>
+        <div class="section-body">
+          <p class="lead" id="profile-text"></p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 id="experience-title"></h2>
+        <div class="section-body">
+          <div id="experience-list" class="timeline"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 id="skills-title"></h2>
+        <div class="section-body">
+          <dl id="skills-list" class="skill-groups"></dl>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 id="languages-title"></h2>
+        <div class="section-body">
+          <ul id="languages-list" class="simple-list"></ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 id="education-title"></h2>
+        <div class="section-body">
+          <ul id="education-list" class="simple-list"></ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 id="additional-title"></h2>
+        <div class="section-body">
+          <ul id="additional-list" class="simple-list"></ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 id="projects-title"></h2>
+        <div class="section-body">
+          <div id="projects-list" class="projects"></div>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="lightbox" class="lightbox">
+      <figure class="lightbox-figure">
+        <img id="lightbox-image" alt="" />
+        <figcaption>
+          <span id="lightbox-caption"></span>
+          <span id="lightbox-counter" class="lightbox-counter"></span>
+        </figcaption>
+      </figure>
+      <button type="button" id="lightbox-prev" class="lightbox-nav lightbox-prev">‹</button>
+      <button type="button" id="lightbox-next" class="lightbox-nav lightbox-next">›</button>
+      <button type="button" id="lightbox-close" class="lightbox-close">×</button>
+    </dialog>
+
+    <script src="./app.js?v=7" type="module"></script>
+  </body>
+</html>

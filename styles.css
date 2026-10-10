@@ -1,0 +1,586 @@
+:root {
+  --page: #f6f7f8;
+  --ink: #1a2026;
+  --muted: #5a6670;
+  --rule: #d5dbe0;
+  --asphalt: #2b333a;
+  --marking: #f5b800;
+  --sign: #0a5ca8;
+  --gutter: 190px;
+  --display: "Geologica", "Helvetica Neue", Arial, sans-serif;
+  --body: "Golos Text", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+dl,
+dd {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: var(--sign);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--sign);
+  outline-offset: 3px;
+}
+
+.page-header,
+.page-main {
+  width: min(980px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.page-main {
+  padding-bottom: 56px;
+}
+
+/* Header */
+
+.page-header {
+  padding: 56px 0 44px;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 24px;
+}
+
+h1 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(2.1rem, 5.4vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.role {
+  margin-top: 16px;
+  max-width: 34em;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.contact-list {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 28px;
+}
+
+.contact-list a {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.contact-list span {
+  color: var(--muted);
+}
+
+.lang-switcher {
+  display: flex;
+  flex: none;
+  margin-top: 8px;
+  border: 1px solid var(--asphalt);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.lang-button {
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: 500 0.9rem var(--body);
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.lang-button.is-active {
+  background: var(--asphalt);
+  color: #fff;
+}
+
+.load-error {
+  margin-top: 20px;
+  padding: 12px 16px;
+  border-left: 4px solid var(--marking);
+  background: #fff;
+}
+
+/* Sections: title in the left gutter, content on the right */
+
+.section {
+  display: grid;
+  grid-template-columns: var(--gutter) minmax(0, 1fr);
+  column-gap: 32px;
+  padding: 36px 0;
+  border-top: 1px solid var(--rule);
+}
+
+h2 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.section-body {
+  max-width: 44rem;
+}
+
+.lead {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+/* Experience is a road read from the top: a rover drives at the current end,
+   every job is a crossing with a kilometre-style plate showing its start year,
+   current jobs carry a "priority road" diamond, finished ones a "no stopping" sign,
+   the first job is the start line. */
+
+.timeline {
+  --road: 34px;
+  --road-gap: 62px;
+  position: relative;
+  padding: 52px 0 30px calc(var(--road) + var(--road-gap));
+  display: grid;
+  gap: 40px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--road);
+  border-radius: 5px;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 3px,
+      #fff 3px 5px,
+      transparent 5px calc(100% - 5px),
+      #fff calc(100% - 5px) calc(100% - 3px),
+      transparent calc(100% - 3px)
+    ),
+    var(--asphalt);
+}
+
+.timeline::after {
+  content: "";
+  position: absolute;
+  inset: 46px auto 30px calc(var(--road) / 2 - 1px);
+  width: 2px;
+  background: repeating-linear-gradient(to bottom, var(--marking) 0 12px, transparent 12px 26px);
+}
+
+.timeline-rover {
+  position: absolute;
+  z-index: 2;
+  top: 8px;
+  left: calc(var(--road) / 2 - 10px);
+  width: 20px;
+}
+
+.timeline-start {
+  position: absolute;
+  z-index: 1;
+  bottom: 8px;
+  left: 5px;
+  width: calc(var(--road) - 10px);
+  height: 12px;
+  background: repeating-conic-gradient(#fff 0 25%, var(--asphalt) 0 50%) 0 0 / 12px 12px;
+}
+
+.timeline-item {
+  position: relative;
+}
+
+/* Crossing: zebra stripes across the road at each job */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 4px;
+  left: calc(-1 * (var(--road) + var(--road-gap)) + 5px);
+  width: calc(var(--road) - 10px);
+  height: 18px;
+  background:
+    repeating-linear-gradient(90deg, #fff 0 3px, transparent 3px 6px),
+    var(--asphalt);
+}
+
+.timeline-sign {
+  position: absolute;
+  top: -6px;
+  left: calc(-1 * var(--road-gap) + 8px);
+  width: 44px;
+}
+
+.timeline-sign svg,
+.timeline-rover svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.timeline-meta {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--sign);
+}
+
+.timeline-role {
+  margin-top: 4px;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.3rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.timeline-company {
+  margin-top: 6px;
+  color: var(--muted);
+}
+
+.timeline-points {
+  margin-top: 14px;
+}
+
+.timeline-points li,
+.simple-list li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.timeline-points li::before,
+.simple-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 8px;
+  height: 2px;
+  background: var(--muted);
+}
+
+.timeline-points li + li,
+.simple-list li + li {
+  margin-top: 8px;
+}
+
+/* Skills */
+
+.skill-groups {
+  display: grid;
+  gap: 14px;
+}
+
+.skill-group {
+  display: grid;
+  grid-template-columns: 12.5rem minmax(0, 1fr);
+  column-gap: 20px;
+}
+
+.skill-group dt {
+  font-weight: 600;
+}
+
+.skill-group dd {
+  color: var(--muted);
+}
+
+/* Projects: one block per topic, cover on the left when there are photos */
+
+.projects {
+  display: grid;
+  gap: 32px;
+}
+
+.project:has(.project-cover) {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.project-cover {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  padding: 0;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--rule);
+  font: inherit;
+  cursor: zoom-in;
+}
+
+.project-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-cover.is-contained {
+  background: var(--asphalt);
+}
+
+.project-cover.is-contained img {
+  object-fit: contain;
+}
+
+.project-cover-count {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  padding: 2px 10px;
+  border-radius: 6px;
+  background: var(--asphalt);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Full-screen photo viewer */
+
+.lightbox {
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #fff;
+}
+
+.lightbox[open] {
+  display: grid;
+  place-items: center;
+}
+
+.lightbox::backdrop {
+  background: #1b2126;
+}
+
+.lightbox-figure {
+  margin: 0;
+  width: min(1200px, calc(100vw - 140px));
+}
+
+.lightbox-figure img {
+  display: block;
+  width: 100%;
+  max-height: calc(100vh - 140px);
+  object-fit: contain;
+}
+
+.lightbox-figure figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 14px;
+  line-height: 1.4;
+}
+
+.lightbox-counter {
+  flex: none;
+  color: #b8c1c9;
+}
+
+.lightbox-nav,
+.lightbox-close {
+  position: fixed;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.12);
+  color: #fff;
+  font-size: 1.9rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lightbox-nav:hover,
+.lightbox-close:hover {
+  background: var(--marking);
+  color: var(--asphalt);
+}
+
+.lightbox-nav:focus-visible,
+.lightbox-close:focus-visible {
+  outline-color: var(--marking);
+}
+
+.lightbox-prev {
+  left: 12px;
+  top: calc(50% - 24px);
+}
+
+.lightbox-next {
+  right: 12px;
+  top: calc(50% - 24px);
+}
+
+.lightbox-close {
+  right: 12px;
+  top: 12px;
+}
+
+.project-label {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.project-title {
+  margin-top: 2px;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.project-description {
+  margin-top: 6px;
+  color: var(--muted);
+}
+
+.project-links {
+  display: grid;
+  justify-items: start;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.project-links:empty {
+  display: none;
+}
+
+.project-links a {
+  font-weight: 500;
+}
+
+@media (max-width: 760px) {
+  .page-header {
+    padding: 32px 0 28px;
+  }
+
+  .section {
+    grid-template-columns: 1fr;
+    row-gap: 14px;
+    padding: 28px 0;
+  }
+
+  .skill-group {
+    grid-template-columns: 1fr;
+  }
+
+  .project:has(.project-cover) {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .lightbox-figure {
+    width: calc(100vw - 24px);
+  }
+
+  .lightbox-prev,
+  .lightbox-next {
+    top: auto;
+    bottom: 12px;
+  }
+
+  .timeline {
+    --road: 26px;
+    --road-gap: 50px;
+  }
+
+  .timeline-sign {
+    width: 36px;
+  }
+}
+
+@media print {
+  :root {
+    --page: #fff;
+    --gutter: 130px;
+  }
+
+  body {
+    font-size: 10.5pt;
+  }
+
+  .lang-switcher,
+  .lightbox,
+  .project-cover {
+    display: none;
+  }
+
+  .project:has(.project-cover) {
+    display: block;
+  }
+
+  .page-header {
+    padding: 0 0 20px;
+  }
+
+  .section {
+    padding: 18px 0;
+  }
+
+  .timeline {
+    gap: 22px;
+  }
+
+  .timeline-item {
+    break-inside: avoid;
+  }
+
+  .timeline::before,
+  .timeline::after,
+  .timeline-start,
+  .timeline-item::before {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
