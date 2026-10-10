@@ -1,3 +1,4 @@
 .DS_Store
-*.pdf
+# the hh.ru export in the project root has personal details; the generated resume PDFs in assets/ are published
+/*.pdf
 __pycache__/
