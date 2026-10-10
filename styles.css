@@ -617,8 +617,35 @@ h2 {
     padding: 32px 0 28px;
   }
 
+  /* On a phone the language switch goes on its own line above the name,
+     otherwise a long surname pushes it off the screen. */
+  .header-top {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .lang-switcher {
+    align-self: end;
+    margin-top: 0;
+  }
+
   .identity {
     gap: 16px;
+  }
+
+  .identity > div {
+    min-width: 0;
+  }
+
+  h1 {
+    font-size: clamp(1.45rem, 7.2vw, 2.1rem);
+    overflow-wrap: anywhere;
+  }
+
+  .role {
+    margin-top: 10px;
+    font-size: 1.05rem;
   }
 
   .portrait {
