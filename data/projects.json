@@ -282,7 +282,15 @@
         "ru": "Соревнование для школьников 12–15 лет: робот-курьер забирает груз, доставляет его по адресу и возвращается, соблюдая дорожную обстановку. Вместе с Яндекс Образованием и РобоФинистом подготовили регламент, полигон, критерии судейства и эталонное решение; участвовал в судействе. Финал прошел 3 октября 2026 года в Кронштадте. Фото: Лана Халявина.",
         "en": "A competition for students aged 12–15: a courier robot picks up a parcel, delivers it to an address and returns while following the road rules. Together with Yandex Education and RoboFinist we prepared the rules, the field, the judging criteria and a reference solution; I took part in the judging. The final took place on October 3, 2026 in Kronstadt. Photos: Lana Khalyavina."
       },
-      "links": [],
+      "links": [
+        {
+          "url": "https://robofinist.ru/event/info/competitions/id/1600#kind12499",
+          "text": {
+            "ru": "РобоФинист: страница соревнования",
+            "en": "RoboFinist: competition page"
+          }
+        }
+      ],
       "gallery": [
         {
           "src": "./assets/media/robofinist-field.jpg",
