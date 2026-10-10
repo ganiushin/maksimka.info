@@ -31,6 +31,10 @@
     "enlarge": {
       "ru": "Увеличить фото",
       "en": "Enlarge the photo"
+    },
+    "showPhone": {
+      "ru": "Показать телефон",
+      "en": "Show phone number"
     }
   },
   "items": [

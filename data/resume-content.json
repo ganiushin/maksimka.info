@@ -3,7 +3,9 @@
     "fullName": "Ганюшин Максим Владимирович",
     "headline": "QA Lead и инженер: автономный транспорт, робототехника, AI-сервисы",
     "contacts": [
-      "+7 (925) 098-09-88",
+      {
+        "phone": "ODgtOTAtODkwICk1MjkoIDcr"
+      },
       "M.Ganyushin@gmail.com",
       "Москва, Россия",
       "Полная занятость • Офис/Удаленно • Командировки возможны"
@@ -197,7 +199,9 @@
     "fullName": "Maksim Ganyushin",
     "headline": "QA Lead and engineer: autonomous transport, robotics, AI services",
     "contacts": [
-      "+7 (925) 098-09-88",
+      {
+        "phone": "ODgtOTAtODkwICk1MjkoIDcr"
+      },
       "M.Ganyushin@gmail.com",
       "Moscow, Russia",
       "Full-time • On-site/Remote • Open to business trips"

@@ -14,6 +14,8 @@ const state = {
   lang: new URLSearchParams(location.search).get("lang") === "en" ? "en" : "ru",
   resume: null,
   projects: null,
+  // ?reveal=1 is used when the PDF is printed: paper cannot be clicked
+  phoneRevealed: new URLSearchParams(location.search).has("reveal"),
 };
 
 const $ = (selector) => document.querySelector(selector);
@@ -34,7 +36,89 @@ const el = (tag, className, text) => {
 
 /* Resume */
 
+/* The phone number is kept out of the page source and the data file in readable
+   form, so scrapers do not collect it. A person sees a shimmering spoiler and
+   gets the number with one click. */
+
+const decodePhone = (encoded) => atob(encoded).split("").reverse().join("");
+
+const phoneLink = (encoded) => {
+  const phone = decodePhone(encoded);
+  const link = el("a", "phone-revealed", phone);
+  link.href = `tel:${phone.replace(/[^\d+]/g, "")}`;
+  return link;
+};
+
+// Drifting, twinkling specks, like a hidden message in a messenger.
+const animateSpoiler = (canvas) => {
+  const context = canvas.getContext("2d");
+  let specks = null;
+  let waited = 0;
+  const frame = () => {
+    if (!canvas.isConnected) {
+      if (specks || ++waited > 120) {
+        return; // removed from the page (revealed or re-rendered): stop
+      }
+      requestAnimationFrame(frame);
+      return;
+    }
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+    if (!specks) {
+      const ratio = window.devicePixelRatio || 1;
+      canvas.width = width * ratio;
+      canvas.height = height * ratio;
+      context.scale(ratio, ratio);
+      specks = Array.from({ length: Math.round(width * 1.1) }, () => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        phase: Math.random() * Math.PI * 2,
+        size: 0.8 + Math.random() * 0.9,
+      }));
+    }
+    context.clearRect(0, 0, width, height);
+    specks.forEach((speck) => {
+      speck.x = (speck.x + speck.vx + width) % width;
+      speck.y = (speck.y + speck.vy + height) % height;
+      speck.phase += 0.07;
+      context.globalAlpha = 0.25 + 0.6 * Math.abs(Math.sin(speck.phase));
+      context.fillStyle = "#1a2026";
+      context.fillRect(speck.x, speck.y, speck.size, speck.size);
+    });
+    requestAnimationFrame(frame);
+  };
+  requestAnimationFrame(frame);
+};
+
+const phoneNode = (encoded) => {
+  if (state.phoneRevealed) {
+    return phoneLink(encoded);
+  }
+  const spoiler = el("button", "phone-spoiler");
+  spoiler.type = "button";
+  spoiler.setAttribute("aria-label", t(state.projects.ui.showPhone));
+  spoiler.title = t(state.projects.ui.showPhone);
+  const canvas = el("canvas");
+  spoiler.append(canvas);
+  animateSpoiler(canvas);
+  spoiler.addEventListener("click", () => {
+    state.phoneRevealed = true;
+    spoiler.classList.add("is-revealing");
+    setTimeout(() => {
+      const link = phoneLink(encoded);
+      spoiler.replaceWith(link);
+      link.focus({ preventScroll: true });
+    }, 280);
+  });
+  return spoiler;
+};
+
 const contactNode = (text) => {
+  if (typeof text === "object") {
+    return phoneNode(text.phone);
+  }
   if (text.includes("@")) {
     const link = el("a", "", text);
     link.href = `mailto:${text}`;
@@ -538,6 +622,12 @@ const bootstrap = async () => {
   });
   attachViewerHandlers();
   attachScrollHandlers();
+  window.addEventListener("beforeprint", () => {
+    if (!state.phoneRevealed) {
+      state.phoneRevealed = true;
+      renderResume();
+    }
+  });
   tidyAddress();
   reloadIfStale();
   // A tab left open, or a page restored by the Back button, never "loads" again,

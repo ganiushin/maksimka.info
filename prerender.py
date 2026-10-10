@@ -72,7 +72,8 @@ titles = resume["sectionTitles"]
 blocks = {
     "full-name": escape(resume["fullName"]),
     "headline": escape(resume["headline"]),
-    "contacts": "".join(f"<span>{escape(c)}</span>" for c in resume["contacts"]),
+    # the phone is stored encoded and never written into the static page
+    "contacts": "".join(f"<span>{escape(c)}</span>" for c in resume["contacts"] if isinstance(c, str)),
     "profile-title": escape(titles["profile"]),
     "profile-text": escape(resume["profile"]),
     "experience-title": escape(titles["experience"]),
@@ -156,7 +157,7 @@ def print_pdfs():
                     "--no-pdf-header-footer",
                     "--virtual-time-budget=8000",
                     f"--print-to-pdf={target}",
-                    f"http://127.0.0.1:{server.server_port}/?lang={lang}",
+                    f"http://127.0.0.1:{server.server_port}/?lang={lang}&reveal=1",
                 ],
                 check=True,
                 capture_output=True,
