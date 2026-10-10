@@ -90,10 +90,15 @@ for path in sorted(
     if path.is_file():
         digest.update(path.name.encode())
         digest.update(path.read_bytes())
-build = digest.hexdigest()[:10]
-
 index = ROOT / "index.html"
 html = index.read_text(encoding="utf-8")
+
+# The page itself counts too, minus the parts this script writes into it.
+skeleton = re.sub(r"(<!--prerender:[\w-]+-->).*?(<!--/prerender:[\w-]+-->)", r"\1\2", html, flags=re.S)
+skeleton = re.sub(r'(<meta name="build" content=")[^"]*(")', r"\1\2", skeleton)
+skeleton = re.sub(r"(\?v=)[\w-]+", r"\1", skeleton)
+digest.update(skeleton.encode())
+build = digest.hexdigest()[:10]
 html = re.sub(r'(<meta name="build" content=")[^"]*(")', rf"\g<1>{build}\g<2>", html)
 html = re.sub(r"((?:styles\.css|app\.js|portrait\.jpg)\?v=)[\w-]+", rf"\g<1>{build}", html)
 for name, content in blocks.items():
