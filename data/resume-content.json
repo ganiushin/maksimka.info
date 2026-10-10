@@ -157,7 +157,7 @@
     "additional": [
       "Водительские права категорий A и B, личный автомобиль",
       "Готов к командировкам и запуску новых площадок",
-      "Собираю шестиосевую руку-манипулятор [MaGaRM](https://github.com/ganiushin/MaGaRM): печатные детали, моторы на шине CAN, камера на запястье",
+      "Собираю шестиосевую руку-манипулятор [MaGaRM](https://github.com/ganiushin/MaGaRM)",
       "Умный дом на Home Assistant: [локальное распознавание и синтез речи](https://github.com/ganiushin/parakeet-stt-silero-tts-addons-haos), [голосовая колонка](https://github.com/ganiushin/voice-pe-firmware)"
     ],
     "navigator": [
@@ -353,7 +353,7 @@
     "additional": [
       "Driving license, categories A and B; own car",
       "Open to business trips and launching new sites",
-      "Building [MaGaRM](https://github.com/ganiushin/MaGaRM), a six-axis robot arm: printed parts, motors on a CAN bus, a wrist camera",
+      "Building [MaGaRM](https://github.com/ganiushin/MaGaRM), a six-axis robot arm",
       "Smart home on Home Assistant: [local speech recognition and synthesis](https://github.com/ganiushin/parakeet-stt-silero-tts-addons-haos), [voice speaker](https://github.com/ganiushin/voice-pe-firmware)"
     ],
     "navigator": [
