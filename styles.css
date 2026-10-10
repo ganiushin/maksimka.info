@@ -734,13 +734,24 @@ h2 {
 }
 
 @media print {
+  /* The PDF keeps every word and saves paper on margins, spacing and pictures. */
+  @page {
+    size: A4;
+    margin: 9mm 11mm;
+  }
+
   :root {
     --page: #fff;
-    --gutter: 130px;
   }
 
   body {
-    font-size: 10.5pt;
+    font-size: 8.6pt;
+    line-height: 1.34;
+  }
+
+  .page-header,
+  .page-main {
+    width: 100%;
   }
 
   .print-only {
@@ -750,46 +761,209 @@ h2 {
   .header-actions,
   .navigator,
   .lightbox,
-  .project-cover {
+  .project-cover,
+  .timeline-rover {
     display: none;
   }
 
+  /* header: one compact block */
+  .page-header {
+    padding: 0 0 7px;
+  }
+
+  .header-top {
+    flex-direction: row;
+  }
+
+  .identity {
+    gap: 12px;
+  }
+
+  .portrait {
+    width: 52px;
+    height: 52px;
+  }
+
+  h1 {
+    font-size: 17pt;
+  }
+
+  .role {
+    margin-top: 2px;
+    max-width: none;
+    font-size: 9.5pt;
+  }
+
+  .contact-list {
+    margin-top: 7px;
+    gap: 1px 16px;
+  }
+
+  /* sections flow as plain blocks so a job can continue on the next page */
+  .section {
+    display: block;
+    padding: 6px 0;
+  }
+
+  .page-main {
+    padding-bottom: 0;
+  }
+
+  h2 {
+    margin-bottom: 3px;
+    font-size: 9pt;
+    break-after: avoid;
+  }
+
+  .section-body {
+    max-width: none;
+  }
+
+  .lead {
+    font-size: 9pt;
+    line-height: 1.36;
+  }
+
+  /* the road stays, only thinner */
+  .timeline {
+    --road: 14px;
+    --road-gap: 34px;
+    display: block;
+    padding-top: 4px;
+    padding-bottom: 14px;
+  }
+
+  .timeline::before {
+    border-radius: 3px;
+    background: var(--asphalt);
+  }
+
+  .timeline::after {
+    top: 4px;
+    bottom: 14px;
+    left: calc(var(--road) / 2 - 0.5px);
+    width: 1px;
+    background: repeating-linear-gradient(to bottom, var(--marking) 0 6px, transparent 6px 13px);
+  }
+
+  .timeline-start {
+    bottom: 3px;
+    left: 2px;
+    width: calc(var(--road) - 4px);
+    height: 5px;
+    background-size: 5px 5px;
+  }
+
+  .timeline-item + .timeline-item {
+    margin-top: 7px;
+  }
+
+  .timeline-item::before {
+    top: 2px;
+    left: calc(-1 * (var(--road) + var(--road-gap)) + 2px);
+    width: calc(var(--road) - 4px);
+    height: 7px;
+    background:
+      repeating-linear-gradient(90deg, #fff 0 2px, transparent 2px 4px),
+      var(--asphalt);
+  }
+
+  .timeline-sign {
+    top: -2px;
+    left: calc(-1 * var(--road-gap) + 5px);
+    width: 24px;
+  }
+
+  .timeline-meta {
+    font-size: 8pt;
+  }
+
+  .timeline-role {
+    margin-top: 0;
+    font-size: 10.5pt;
+  }
+
+  .timeline-company {
+    margin-top: 1px;
+  }
+
+  .timeline-points {
+    margin-top: 3px;
+  }
+
+  .timeline-points li,
+  .simple-list li {
+    padding-left: 11px;
+  }
+
+  .timeline-points li::before,
+  .simple-list li::before {
+    width: 5px;
+    height: 1px;
+  }
+
+  .timeline-points li + li,
+  .simple-list li + li {
+    margin-top: 1.5px;
+  }
+
+  /* skills: group name and items on one line */
+  .skill-groups {
+    display: block;
+  }
+
+  .skill-group {
+    display: block;
+  }
+
+  .skill-group + .skill-group {
+    margin-top: 1.5px;
+  }
+
+  .skill-group dt {
+    display: inline;
+  }
+
+  .skill-group dt::after {
+    content: ": ";
+  }
+
+  .skill-group dd {
+    display: inline;
+  }
+
+  /* projects: text only, two columns */
+  .projects {
+    display: block;
+    columns: 2;
+    column-gap: 18px;
+  }
+
+  .project,
   .project:has(.project-cover) {
     display: block;
   }
 
-  .page-header {
-    padding: 0 0 20px;
+  .project + .project {
+    margin-top: 6px;
   }
 
-  /* Grids do not split across pages well: in print everything is a plain flow,
-     and a job may continue on the next page instead of leaving a blank one. */
-  .section {
-    display: block;
-    padding: 16px 0;
+  .project-label {
+    font-size: 7.6pt;
   }
 
-  h2 {
-    margin-bottom: 10px;
-    break-after: avoid;
+  .project-title {
+    margin-top: 0;
+    font-size: 9.2pt;
   }
 
-  .timeline {
-    display: block;
-    padding-top: 14px;
-    padding-bottom: 30px;
+  .project-description {
+    margin-top: 1px;
   }
 
-  .timeline::after {
-    top: 8px;
-  }
-
-  .timeline-item + .timeline-item {
-    margin-top: 22px;
-  }
-
-  .timeline-rover {
-    display: none;
+  .project-links {
+    gap: 0;
+    margin-top: 2px;
   }
 
   .timeline-meta,
@@ -804,14 +978,6 @@ h2 {
   .skill-group,
   .project {
     break-inside: avoid;
-  }
-
-  .projects {
-    display: block;
-  }
-
-  .project + .project {
-    margin-top: 18px;
   }
 
   .timeline::before,

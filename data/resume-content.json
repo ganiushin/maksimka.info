@@ -61,7 +61,8 @@
         "company": "Яндекс • Москва",
         "points": [
           "Вырос от инженера по тестированию до руководителя службы.",
-          "Вместе с командой выстроил релизный цикл: каждый релиз системы автономного вождения ежедневно проверялся в симуляторе и на автомобилях.",
+          "Служба тестировала флот, который на пике насчитывал 120 беспилотных автомобилей и около 300 роботов-доставщиков.",
+          "Вместе с командой выстроил релизный цикл и сократил его с месяца до недели: каждый релиз системы автономного вождения ежедневно проверялся в симуляторе и на автомобилях.",
           "С нуля организовали тестирование в симуляторе, тестирование роботов-доставщиков и встраиваемых систем — от промежуточных контроллеров управления до лидаров.",
           "Участвовал в запуске площадок в Иннополисе, Сколково, Москве, Тель-Авиве и Ясеневе и коммерческого маршрута на трассе М4: от проработки маршрута до процессов тестирования для безопасного запуска.",
           "Подготовил первый проезд без человека в салоне: 50 км по Иннополису в октябре 2023 года, зафиксирован в экспериментальном правовом режиме (ЭПР).",
@@ -252,7 +253,8 @@
         "company": "Yandex • Moscow",
         "points": [
           "Grew from QA engineer to head of the department.",
-          "Together with the team, built the release cycle: every release of the autonomous driving system was tested daily in the simulator and on vehicles.",
+          "The department tested a fleet that at its peak numbered 120 self-driving cars and about 300 delivery robots.",
+          "Together with the team, built the release cycle and cut it from a month to a week: every release of the autonomous driving system was tested daily in the simulator and on vehicles.",
           "Set up from scratch simulator testing, delivery robot testing and embedded systems testing, from intermediate control units to lidars.",
           "Took part in launching sites in Innopolis, Skolkovo, Moscow, Tel Aviv and Yasenevo, and a commercial route on the M4 highway: from route planning to test processes for a safe launch.",
           "Prepared the first ride with nobody in the car: 50 km around Innopolis in October 2023, recorded under Russia's experimental legal regime.",
