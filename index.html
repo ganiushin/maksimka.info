@@ -21,13 +21,15 @@
       rel="stylesheet"
     />
     <!-- Bump ?v= on every change to styles.css or app.js so browsers drop the cached copy. -->
-    <link rel="stylesheet" href="./styles.css?v=8" />
+    <link rel="stylesheet" href="./styles.css?v=9" />
   </head>
   <body>
     <header class="page-header">
       <div class="header-top">
         <div class="identity">
-          <img class="portrait" src="./assets/media/portrait.jpg" alt="Максим Ганюшин" width="128" height="128" />
+          <button type="button" class="portrait-button" id="portrait-button">
+            <img class="portrait" src="./assets/media/portrait.jpg" alt="Максим Ганюшин" width="128" height="128" />
+          </button>
           <div>
             <h1 id="full-name"></h1>
             <p class="role" id="headline"></p>
@@ -106,6 +108,6 @@
       <button type="button" id="lightbox-close" class="lightbox-close">×</button>
     </dialog>
 
-    <script src="./app.js?v=8" type="module"></script>
+    <script src="./app.js?v=9" type="module"></script>
   </body>
 </html>

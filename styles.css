@@ -84,8 +84,17 @@ a:hover {
   gap: 28px;
 }
 
-.portrait {
+.portrait-button {
   flex: none;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  cursor: zoom-in;
+}
+
+.portrait {
+  display: block;
   width: 128px;
   height: 128px;
   border-radius: 50%;

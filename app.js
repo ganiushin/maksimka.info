@@ -298,6 +298,10 @@ const bootstrap = async () => {
     });
   });
   attachViewerHandlers();
+  $("#portrait-button").addEventListener("click", () => {
+    const portrait = $("#portrait-button img");
+    openViewer([{ src: portrait.getAttribute("src"), caption: state.resume[state.lang].fullName }]);
+  });
   render();
 };
 
