@@ -165,20 +165,24 @@ const signNode = (year, isCurrent) => {
   return sign;
 };
 
-// A small delivery rover seen from above, driving up the road.
+// A self-driving car seen from above, driving up the road: white body, dark glass,
+// a sensor pod with a lidar on the roof. An original drawing, not any maker's model.
+// The element keeps the "rover" name it had when it was a delivery robot.
 const roverNode = () => {
   const rover = el("span", "timeline-rover");
   rover.append(
     svg(
       `<g fill="#14181c">
-         <rect x="0" y="5" width="4" height="7" rx="1.5"/><rect x="16" y="5" width="4" height="7" rx="1.5"/>
-         <rect x="0" y="14" width="4" height="7" rx="1.5"/><rect x="16" y="14" width="4" height="7" rx="1.5"/>
-         <rect x="0" y="23" width="4" height="7" rx="1.5"/><rect x="16" y="23" width="4" height="7" rx="1.5"/>
+         <rect x="0.6" y="6" width="3" height="6" rx="1.2"/><rect x="16.4" y="6" width="3" height="6" rx="1.2"/>
+         <rect x="0.6" y="22" width="3" height="6" rx="1.2"/><rect x="16.4" y="22" width="3" height="6" rx="1.2"/>
        </g>
-       <rect x="3" y="2" width="14" height="30" rx="4" fill="#fff" stroke="#14181c" stroke-width="1"/>
-       <rect x="3" y="2" width="14" height="10" rx="4" fill="#14181c"/>
-       <rect x="5.5" y="3.5" width="3" height="2" rx="1" fill="#f5b800"/><rect x="11.5" y="3.5" width="3" height="2" rx="1" fill="#f5b800"/>
-       <g class="rover-tail-lights" fill="#d6312b"><rect x="5" y="28.5" width="3.5" height="2" rx="1"/><rect x="11.5" y="28.5" width="3.5" height="2" rx="1"/></g>`,
+       <path d="M6 1.5h8a4 4 0 0 1 4 4v23a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4v-23a4 4 0 0 1 4-4z" fill="#fff" stroke="#14181c" stroke-width="1"/>
+       <path d="M4.6 10.5q5.4-2.6 10.8 0l-1.1 4.2h-8.6z" fill="#14181c"/>
+       <path d="M5.6 25.2h8.8l1 3.6q-5.4 1.9-10.8 0z" fill="#14181c"/>
+       <rect x="5.4" y="16" width="9.2" height="7.6" rx="1.6" fill="#e6e9ec" stroke="#14181c" stroke-width="0.6"/>
+       <circle cx="10" cy="19.8" r="2.3" fill="#14181c"/><circle cx="10" cy="19.8" r="0.9" fill="#f5b800"/>
+       <rect x="4.2" y="2.6" width="3.2" height="1.6" rx="0.8" fill="#f5b800"/><rect x="12.6" y="2.6" width="3.2" height="1.6" rx="0.8" fill="#f5b800"/>
+       <g class="rover-tail-lights" fill="#d6312b"><rect x="4.2" y="30" width="3.4" height="1.6" rx="0.8"/><rect x="12.4" y="30" width="3.4" height="1.6" rx="0.8"/></g>`,
       "0 0 20 34",
     ),
   );
