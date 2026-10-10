@@ -136,7 +136,10 @@ const renderResume = () => {
 
   $("#full-name").textContent = content.fullName;
   $("#headline").textContent = content.headline;
-  $("#contacts").replaceChildren(...content.contacts.map(contactNode));
+  // The site address is only needed on paper: the PDF should lead back here.
+  const site = el("a", "print-only", "maksimka.info");
+  site.href = "https://maksimka.info/";
+  $("#contacts").replaceChildren(...content.contacts.slice(0, 2).map(contactNode), site, ...content.contacts.slice(2).map(contactNode));
 
   $("#profile-title").textContent = titles.profile;
   $("#profile-text").textContent = content.profile;
@@ -385,21 +388,31 @@ const updateRover = () => {
   rover.firstElementChild.style.transform = `rotate(${roverState.heading}deg)`;
 };
 
-// Scroll far too fast and the chip turns into a speeding warning for a few seconds.
-const SPEED_LIMIT = 5; // px per ms of page scroll
-const speedTrap = { y: 0, time: 0, quietUntil: 0, timer: 0 };
+// Scroll too fast and the chip turns into a speeding warning for a few seconds.
+// Speed is averaged over the last fraction of a second, so both one long flick
+// and a burst of quick wheel turns are caught.
+const SPEED_LIMIT = 1.8; // px per ms of page scroll, about two screens a second
+const SPEED_WINDOW = 220; // ms
+const speedTrap = { samples: [], quietUntil: 0, timer: 0 };
 
 const checkSpeed = () => {
   const now = performance.now();
-  const distance = Math.abs(window.scrollY - speedTrap.y);
-  const speed = distance / Math.max(now - speedTrap.time, 1);
-  speedTrap.y = window.scrollY;
-  speedTrap.time = now;
+  const samples = speedTrap.samples;
+  samples.push({ time: now, y: window.scrollY });
+  while (samples.length > 1 && now - samples[0].time > SPEED_WINDOW) {
+    samples.shift();
+  }
+  const first = samples[0];
+  const elapsed = now - first.time;
+  const distance = Math.abs(window.scrollY - first.y);
 
-  if (speed < SPEED_LIMIT || distance < 250 || now < speedTrap.quietUntil || guide.dismissed) {
+  if (elapsed < 60 || distance < 320 || distance / elapsed < SPEED_LIMIT) {
     return;
   }
-  speedTrap.quietUntil = now + 10000;
+  if (now < speedTrap.quietUntil || guide.dismissed) {
+    return;
+  }
+  speedTrap.quietUntil = now + 7000;
   guide.holdUntil = now + 4000;
   showOnChip({ text: state.resume[state.lang].navigatorSpeeding, warning: true });
   clearTimeout(speedTrap.timer);

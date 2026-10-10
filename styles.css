@@ -125,6 +125,10 @@ h1 {
   gap: 6px 28px;
 }
 
+.print-only {
+  display: none;
+}
+
 .contact-list a {
   color: var(--ink);
   font-weight: 500;
@@ -737,6 +741,10 @@ h2 {
 
   body {
     font-size: 10.5pt;
+  }
+
+  .print-only {
+    display: inline;
   }
 
   .header-actions,
