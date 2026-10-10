@@ -317,6 +317,10 @@ const updateNavigator = () => {
   guide.chip.classList.add("is-fresh");
 };
 
+// The rover follows the scroll along the road and faces the way it is going:
+// down the page it drives nose down, back up it turns around on the spot.
+const roverState = { offset: 0, heading: 0 };
+
 const updateRover = () => {
   const road = $("#experience-list");
   const rover = road.querySelector(".timeline-rover");
@@ -326,7 +330,19 @@ const updateRover = () => {
   const rect = road.getBoundingClientRect();
   const travel = rect.height - rover.offsetHeight - 30;
   const passed = Math.min(Math.max((window.innerHeight * 0.45 - rect.top) / rect.height, 0), 1);
-  rover.style.transform = `translateY(${Math.round(passed * travel)}px) rotate(${passed > 0 ? 180 : 0}deg)`;
+  const offset = Math.round(passed * travel);
+
+  if (offset === 0) {
+    roverState.heading = 0;
+  } else if (offset > roverState.offset + 2) {
+    roverState.heading = 180;
+  } else if (offset < roverState.offset - 2) {
+    roverState.heading = 0;
+  }
+  roverState.offset = offset;
+
+  rover.style.transform = `translateY(${offset}px)`;
+  rover.firstElementChild.style.transform = `rotate(${roverState.heading}deg)`;
 };
 
 const attachScrollHandlers = () => {

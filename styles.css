@@ -239,6 +239,12 @@ h2 {
   width: 20px;
 }
 
+/* The rover is a 20px icon that only moves when the reader scrolls, so its
+   turn-around is shown even with "reduce motion" on; larger effects stay gated. */
+.timeline-rover svg {
+  transition: transform 0.5s ease-in-out;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .timeline-rover {
     transition: transform 0.08s linear;
