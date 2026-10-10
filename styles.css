@@ -676,6 +676,25 @@ h2 {
     padding: 32px 0 28px;
   }
 
+  /* On a phone the navigator chip is a narrow strip in the corner, so it covers as little text as possible */
+  .navigator {
+    right: 8px;
+    bottom: 8px;
+    gap: 6px;
+    max-width: min(230px, calc(100vw - 16px));
+    padding: 6px 6px 6px 9px;
+    border-width: 1.5px;
+    outline-width: 1.5px;
+    font-size: 0.78rem;
+    line-height: 1.25;
+  }
+
+  .navigator-close {
+    width: 20px;
+    height: 20px;
+    font-size: 0.95rem;
+  }
+
 
   .identity {
     gap: 16px;
