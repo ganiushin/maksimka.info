@@ -27,8 +27,7 @@
           "Развернул языковую модель на своих серверах, для изоляции медицинских данных.",
           "Подключил RAG: перед ответом модель получает фрагменты из медицинской базы знаний.",
           "Обучил LoRA поверх SDXL для раздела с персонажами и квестами; генерации принимаю по метрикам эталона.",
-          "Покрытие автотестами: более 1900 тестов бэкенда на pytest, тесты интерфейса на Vitest и e2e-сценарии на Playwright, которые проверяют живой сайт после каждой выкладки; при провале релиз откатывается.",
-          "В CI — линтер, сканеры безопасности (bandit, Trivy) и еженедельная проверка восстановления из бэкапа.",
+          "Система качества: автотесты на всех уровнях — от модулей до сценариев в браузере (pytest, Vitest, Playwright); каждый релиз проверяется на живом сайте и автоматически откатывается при сбое.",
           "Стек: React, Django, PostgreSQL, Docker; CI/CD на GitHub с автотестами на отдельном тестовом сервере."
         ]
       },
@@ -185,8 +184,7 @@
           "Deployed a language model on my own servers (vLLM) so medical data never leaves the service's environment.",
           "Added RAG: before answering, the model receives passages from a medical knowledge base, which cuts hallucinations.",
           "Trained a LoRA on top of SDXL for the characters and quests section; I accept generations against reference metrics.",
-          "Test coverage: over 1,900 backend tests in pytest, UI tests in Vitest and Playwright e2e scenarios that check the live site after every deployment; a failed check rolls the release back.",
-          "CI includes a linter, security scanners (bandit, Trivy) and a weekly backup-restore check.",
+          "Quality system: automated tests at every level, from units to in-browser scenarios (pytest, Vitest, Playwright); every release is checked on the live site and rolled back automatically on failure.",
           "Stack: React, Django, PostgreSQL, Docker; CI/CD on GitHub with automated tests on a separate test server."
         ]
       },
