@@ -27,8 +27,8 @@
           "Развернул языковую модель на своих серверах, для изоляции медицинских данных.",
           "Подключил RAG: перед ответом модель получает фрагменты из медицинской базы знаний.",
           "Обучил LoRA поверх SDXL для раздела с персонажами и квестами; генерации принимаю по метрикам эталона.",
-          "Покрыл сервис автотестами: более 1900 тестов бэкенда на pytest, тесты интерфейса на Vitest и e2e-сценарии на Playwright, которые после каждой выкладки проверяют живой сайт; при провале релиз откатывается.",
-          "Встроил в CI линтер, сканеры безопасности (bandit, Trivy) и еженедельную проверку восстановления из бэкапа.",
+          "Покрытие автотестами: более 1900 тестов бэкенда на pytest, тесты интерфейса на Vitest и e2e-сценарии на Playwright, которые проверяют живой сайт после каждой выкладки; при провале релиз откатывается.",
+          "В CI — линтер, сканеры безопасности (bandit, Trivy) и еженедельная проверка восстановления из бэкапа.",
           "Стек: React, Django, PostgreSQL, Docker; CI/CD на GitHub с автотестами на отдельном тестовом сервере."
         ]
       },
@@ -40,7 +40,7 @@
           "Разрабатываю софт серийного робота для образовательной платформы Яндекса: прошивки двух процессоров (ESP32-S3 и GD32), движение, камера, звук, датчики, Bluetooth и Wi-Fi.",
           "Участвую в ревью железа и согласовании протокола между роботом и платформой.",
           "Сделал приемочный стенд для сборочной линии: каждый робот проходит автоматический стресс-тест, результаты записываются в память робота и дублируются на внешний сервер.",
-          "Покрыл прошивку тестами без железа: интерпретатор и протокол проверяются на компьютере, а контракт BLE и набор команд платформы сверяются автоматически в CI.",
+          "Покрытие прошивки тестами без железа: интерпретатор и протокол проверяются на компьютере, контракт BLE и набор команд платформы сверяются автоматически в CI.",
           "К Кубку Яндекс Образования собрал и настроил роботов, сделал веб-платформу для обучения нейросети и симулятор с редактором карт. Код открыт на GitHub.",
           "Вместе с Яндекс Образованием и РобоФинистом провели финал соревнований «Рободоставка» для школьников 12–15 лет; работал над регламентом, полигоном и критериями судейства."
         ]
@@ -185,8 +185,8 @@
           "Deployed a language model on my own servers (vLLM) so medical data never leaves the service's environment.",
           "Added RAG: before answering, the model receives passages from a medical knowledge base, which cuts hallucinations.",
           "Trained a LoRA on top of SDXL for the characters and quests section; I accept generations against reference metrics.",
-          "Covered the service with automated tests: over 1,900 backend tests in pytest, UI tests in Vitest and Playwright e2e scenarios that check the live site after every deployment; a failed check rolls the release back.",
-          "Built a linter, security scanners (bandit, Trivy) and a weekly backup-restore check into CI.",
+          "Test coverage: over 1,900 backend tests in pytest, UI tests in Vitest and Playwright e2e scenarios that check the live site after every deployment; a failed check rolls the release back.",
+          "CI includes a linter, security scanners (bandit, Trivy) and a weekly backup-restore check.",
           "Stack: React, Django, PostgreSQL, Docker; CI/CD on GitHub with automated tests on a separate test server."
         ]
       },
@@ -198,7 +198,7 @@
           "Develop the on-robot software of the series-production robot for Yandex's educational platform: firmware for both processors (ESP32-S3 and GD32), motion, camera, audio, sensors, Bluetooth and Wi-Fi.",
           "Take part in hardware reviews and in agreeing the protocol between the robot and the platform.",
           "Prepared an acceptance stand for the assembly line: every robot goes through an automated stress test, and the results are stored in the robot's memory and mirrored to an external server.",
-          "Covered the firmware with hardware-free tests: the interpreter and the protocol are tested on a computer, and the BLE contract and the platform's command set are checked automatically in CI.",
+          "Hardware-free firmware tests: the interpreter and the protocol are tested on a computer, and the BLE contract and the platform's command set are checked automatically in CI.",
           "For the Yandex Education Cup, assembled and tuned the robots and built a web platform for training a neural network and a simulator with a map editor. The code is open on GitHub.",
           "Together with Yandex Education and RoboFinist we ran the final of the Robo-Delivery competition for students aged 12–15; I worked on the rules, the field and the judging criteria."
         ]
