@@ -734,10 +734,11 @@ h2 {
 }
 
 @media print {
-  /* The PDF keeps every word and saves paper on margins, spacing and pictures. */
+  /* The PDF keeps every word at a comfortable reading size and saves paper
+     on margins, spacing and pictures instead. */
   @page {
     size: A4;
-    margin: 9mm 11mm;
+    margin: 11mm 13mm;
   }
 
   :root {
@@ -745,8 +746,8 @@ h2 {
   }
 
   body {
-    font-size: 8.6pt;
-    line-height: 1.34;
+    font-size: 10.2pt;
+    line-height: 1.42;
   }
 
   .page-header,
@@ -768,7 +769,7 @@ h2 {
 
   /* header: one compact block */
   .page-header {
-    padding: 0 0 7px;
+    padding: 0 0 10px;
   }
 
   .header-top {
@@ -776,33 +777,33 @@ h2 {
   }
 
   .identity {
-    gap: 12px;
+    gap: 14px;
   }
 
   .portrait {
-    width: 52px;
-    height: 52px;
+    width: 64px;
+    height: 64px;
   }
 
   h1 {
-    font-size: 17pt;
+    font-size: 20pt;
   }
 
   .role {
-    margin-top: 2px;
+    margin-top: 3px;
     max-width: none;
-    font-size: 9.5pt;
+    font-size: 11pt;
   }
 
   .contact-list {
-    margin-top: 7px;
-    gap: 1px 16px;
+    margin-top: 9px;
+    gap: 2px 18px;
   }
 
   /* sections flow as plain blocks so a job can continue on the next page */
   .section {
     display: block;
-    padding: 6px 0;
+    padding: 9px 0;
   }
 
   .page-main {
@@ -810,8 +811,8 @@ h2 {
   }
 
   h2 {
-    margin-bottom: 3px;
-    font-size: 9pt;
+    margin-bottom: 5px;
+    font-size: 10.2pt;
     break-after: avoid;
   }
 
@@ -820,14 +821,14 @@ h2 {
   }
 
   .lead {
-    font-size: 9pt;
-    line-height: 1.36;
+    font-size: 10.8pt;
+    line-height: 1.42;
   }
 
   /* the road stays, only thinner */
   .timeline {
-    --road: 14px;
-    --road-gap: 34px;
+    --road: 18px;
+    --road-gap: 40px;
     display: block;
     padding-top: 4px;
     padding-bottom: 14px;
@@ -855,7 +856,7 @@ h2 {
   }
 
   .timeline-item + .timeline-item {
-    margin-top: 7px;
+    margin-top: 12px;
   }
 
   .timeline-item::before {
@@ -871,16 +872,16 @@ h2 {
   .timeline-sign {
     top: -2px;
     left: calc(-1 * var(--road-gap) + 5px);
-    width: 24px;
+    width: 29px;
   }
 
   .timeline-meta {
-    font-size: 8pt;
+    font-size: 9.2pt;
   }
 
   .timeline-role {
-    margin-top: 0;
-    font-size: 10.5pt;
+    margin-top: 1px;
+    font-size: 12.2pt;
   }
 
   .timeline-company {
@@ -888,7 +889,7 @@ h2 {
   }
 
   .timeline-points {
-    margin-top: 3px;
+    margin-top: 5px;
   }
 
   .timeline-points li,
@@ -904,7 +905,7 @@ h2 {
 
   .timeline-points li + li,
   .simple-list li + li {
-    margin-top: 1.5px;
+    margin-top: 3px;
   }
 
   /* skills: group name and items on one line */
@@ -917,7 +918,7 @@ h2 {
   }
 
   .skill-group + .skill-group {
-    margin-top: 1.5px;
+    margin-top: 3px;
   }
 
   .skill-group dt {
@@ -936,7 +937,7 @@ h2 {
   .projects {
     display: block;
     columns: 2;
-    column-gap: 18px;
+    column-gap: 22px;
   }
 
   .project,
@@ -945,16 +946,16 @@ h2 {
   }
 
   .project + .project {
-    margin-top: 6px;
+    margin-top: 10px;
   }
 
   .project-label {
-    font-size: 7.6pt;
+    font-size: 8.8pt;
   }
 
   .project-title {
     margin-top: 0;
-    font-size: 9.2pt;
+    font-size: 10.8pt;
   }
 
   .project-description {
