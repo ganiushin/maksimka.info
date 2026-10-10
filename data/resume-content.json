@@ -157,31 +157,32 @@
     ],
     "navigator": [
       {
-        "at": 0.0,
+        "anchor": "top",
         "text": "Маршрут построен: 16 лет опыта, пробок нет."
       },
       {
-        "at": 0.1,
+        "anchor": "experience",
         "text": "Вы на главной дороге. Читайте с удобной скоростью."
       },
       {
-        "at": 0.28,
-        "text": "Впереди шесть лет в Яндексе. Ремни можно не отстегивать."
+        "anchor": "job",
+        "text": "Впереди шесть лет в Яндексе. Ремни можно не отстегивать.",
+        "company": "Яндекс •"
       },
       {
-        "at": 0.5,
+        "anchor": "skills",
         "text": "Половина пути. Похоже, вы заинтересовались."
       },
       {
-        "at": 0.66,
+        "anchor": "education",
         "text": "Так далеко обычно доезжают те, кто собирается написать."
       },
       {
-        "at": 0.82,
+        "anchor": "projects",
         "text": "Осталось немного: проекты, фото и роботы."
       },
       {
-        "at": 0.97,
+        "anchor": "end",
         "text": "Вы прибыли. Пункт назначения — написать Максиму",
         "href": "mailto:M.Ganyushin@gmail.com"
       }
@@ -345,31 +346,32 @@
     ],
     "navigator": [
       {
-        "at": 0.0,
+        "anchor": "top",
         "text": "Route planned: 16 years of experience, no traffic."
       },
       {
-        "at": 0.1,
+        "anchor": "experience",
         "text": "You are on the priority road. Read at a comfortable speed."
       },
       {
-        "at": 0.28,
-        "text": "Six years at Yandex ahead. Keep your seat belt on."
+        "anchor": "job",
+        "text": "Six years at Yandex ahead. Keep your seat belt on.",
+        "company": "Yandex •"
       },
       {
-        "at": 0.5,
+        "anchor": "skills",
         "text": "Halfway there. Looks like you are interested."
       },
       {
-        "at": 0.66,
+        "anchor": "education",
         "text": "Most people who get this far are about to write."
       },
       {
-        "at": 0.82,
+        "anchor": "projects",
         "text": "Almost there: projects, photos and robots."
       },
       {
-        "at": 0.97,
+        "anchor": "end",
         "text": "You have arrived. Destination: write to Maksim",
         "href": "mailto:M.Ganyushin@gmail.com"
       }

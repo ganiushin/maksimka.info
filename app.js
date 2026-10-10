@@ -272,16 +272,32 @@ const renderProjects = () => {
 
 const guide = { chip: $("#navigator"), text: $("#navigator-text"), index: -1, dismissed: false };
 
+// Each message is tied to a place on the page, not to a scroll percentage:
+// it switches the moment that place comes into view.
+const hasReached = (stop) => {
+  if (stop.anchor === "top") {
+    return true;
+  }
+  if (stop.anchor === "end") {
+    return window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 80;
+  }
+  const target =
+    stop.anchor === "job"
+      ? [...document.querySelectorAll(".timeline-item")].find((item) =>
+          item.querySelector(".timeline-company").textContent.startsWith(stop.company),
+        )
+      : $(`#${stop.anchor}-title`);
+  return Boolean(target) && target.getBoundingClientRect().top < window.innerHeight * 0.8;
+};
+
 const updateNavigator = () => {
   const stops = state.resume?.[state.lang].navigator;
   if (!stops || guide.dismissed) {
     return;
   }
-  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
   let index = 0;
   stops.forEach((stop, i) => {
-    if (progress >= stop.at) {
+    if (hasReached(stop)) {
       index = i;
     }
   });
@@ -309,7 +325,7 @@ const updateRover = () => {
   }
   const rect = road.getBoundingClientRect();
   const travel = rect.height - rover.offsetHeight - 30;
-  const passed = Math.min(Math.max((window.innerHeight * 0.4 - rect.top) / rect.height, 0), 1);
+  const passed = Math.min(Math.max((window.innerHeight * 0.45 - rect.top) / rect.height, 0), 1);
   rover.style.transform = `translateY(${Math.round(passed * travel)}px) rotate(${passed > 0 ? 180 : 0}deg)`;
 };
 

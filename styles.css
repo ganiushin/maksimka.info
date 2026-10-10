@@ -241,7 +241,7 @@ h2 {
 
 @media (prefers-reduced-motion: no-preference) {
   .timeline-rover {
-    transition: transform 0.25s ease-out;
+    transition: transform 0.08s linear;
   }
 }
 
