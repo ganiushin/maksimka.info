@@ -86,7 +86,8 @@ const roverNode = () => {
        </g>
        <rect x="3" y="2" width="14" height="30" rx="4" fill="#fff" stroke="#14181c" stroke-width="1"/>
        <rect x="3" y="2" width="14" height="10" rx="4" fill="#14181c"/>
-       <rect x="5.5" y="3.5" width="3" height="2" rx="1" fill="#f5b800"/><rect x="11.5" y="3.5" width="3" height="2" rx="1" fill="#f5b800"/>`,
+       <rect x="5.5" y="3.5" width="3" height="2" rx="1" fill="#f5b800"/><rect x="11.5" y="3.5" width="3" height="2" rx="1" fill="#f5b800"/>
+       <g class="rover-tail-lights" fill="#d6312b"><rect x="5" y="28.5" width="3.5" height="2" rx="1"/><rect x="11.5" y="28.5" width="3.5" height="2" rx="1"/></g>`,
       "0 0 20 34",
     ),
   );
@@ -272,6 +273,21 @@ const renderProjects = () => {
 
 const guide = { chip: $("#navigator"), text: $("#navigator-text"), index: -1, dismissed: false };
 
+const showOnChip = (stop) => {
+  if (guide.dismissed) {
+    return;
+  }
+  const node = stop.href ? el("a", "", stop.text) : el("span", "", stop.text);
+  if (stop.href) {
+    node.href = stop.href;
+  }
+  guide.text.replaceChildren(node);
+  guide.chip.hidden = false;
+  guide.chip.classList.remove("is-fresh");
+  void guide.chip.offsetWidth; // restart the highlight animation
+  guide.chip.classList.add("is-fresh");
+};
+
 // Each message is tied to a place on the page, not to a scroll percentage:
 // it switches the moment that place comes into view.
 const hasReached = (stop) => {
@@ -305,21 +321,16 @@ const updateNavigator = () => {
     return;
   }
   guide.index = index;
-  const stop = stops[index];
-  const node = stop.href ? el("a", "", stop.text) : el("span", "", stop.text);
-  if (stop.href) {
-    node.href = stop.href;
-  }
-  guide.text.replaceChildren(node);
-  guide.chip.hidden = false;
-  guide.chip.classList.remove("is-fresh");
-  void guide.chip.offsetWidth; // restart the highlight animation
-  guide.chip.classList.add("is-fresh");
+  showOnChip(stops[index]);
 };
 
-// The rover follows the scroll along the road and faces the way it is going:
-// down the page it drives nose down, back up it turns around on the spot.
-const roverState = { offset: 0, heading: 0 };
+// The rover follows the scroll along the road and faces the way it is going.
+// Change direction briskly and it turns around on the spot. Change direction
+// slowly and it does not bother: it backs up with its tail lights on. That is
+// the easter egg, and the chip says so the first time it happens.
+const TURN_SPEED = 0.6; // px per ms of travel; slower than this means reversing
+
+const roverState = { offset: 0, time: 0, heading: 0, eggShown: false };
 
 const updateRover = () => {
   const road = $("#experience-list");
@@ -332,15 +343,36 @@ const updateRover = () => {
   const passed = Math.min(Math.max((window.innerHeight * 0.45 - rect.top) / rect.height, 0), 1);
   const offset = Math.round(passed * travel);
 
+  const now = performance.now();
+  const delta = offset - roverState.offset;
+  const speed = Math.abs(delta) / Math.max(now - roverState.time, 1);
+  const wanted = delta > 0 ? 180 : 0; // nose down when going down the page
+  let reversing = rover.classList.contains("is-reversing");
+
   if (offset === 0) {
     roverState.heading = 0;
-  } else if (offset > roverState.offset + 2) {
-    roverState.heading = 180;
-  } else if (offset < roverState.offset - 2) {
-    roverState.heading = 0;
+    reversing = false;
+  } else if (roverState.offset === 0 && delta > 0) {
+    roverState.heading = 180; // setting off from the top always starts nose first
+    reversing = false;
+  } else if (delta !== 0) {
+    if (wanted === roverState.heading) {
+      reversing = false;
+    } else if (speed >= TURN_SPEED) {
+      roverState.heading = wanted;
+      reversing = false;
+    } else {
+      reversing = true;
+      if (!roverState.eggShown) {
+        roverState.eggShown = true;
+        showOnChip({ text: state.resume[state.lang].navigatorEgg });
+      }
+    }
   }
   roverState.offset = offset;
+  roverState.time = now;
 
+  rover.classList.toggle("is-reversing", reversing);
   rover.style.transform = `translateY(${offset}px)`;
   rover.firstElementChild.style.transform = `rotate(${roverState.heading}deg)`;
 };

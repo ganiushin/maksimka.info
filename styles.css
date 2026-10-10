@@ -245,6 +245,14 @@ h2 {
   transition: transform 0.5s ease-in-out;
 }
 
+.rover-tail-lights {
+  opacity: 0;
+}
+
+.timeline-rover.is-reversing .rover-tail-lights {
+  opacity: 1;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .timeline-rover {
     transition: transform 0.08s linear;

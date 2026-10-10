@@ -186,7 +186,8 @@
         "text": "Вы прибыли. Пункт назначения — написать Максиму",
         "href": "mailto:M.Ganyushin@gmail.com"
       }
-    ]
+    ],
+    "navigatorEgg": "Пасхалка найдена: если ехать медленно, можно и задним ходом."
   },
   "en": {
     "fullName": "Maksim Ganyushin",
@@ -375,6 +376,7 @@
         "text": "You have arrived. Destination: write to Maksim",
         "href": "mailto:M.Ganyushin@gmail.com"
       }
-    ]
+    ],
+    "navigatorEgg": "Easter egg found: drive slowly enough and reverse gear will do."
   }
 }
