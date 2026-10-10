@@ -78,6 +78,22 @@ a:hover {
   gap: 24px;
 }
 
+.identity {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.portrait {
+  flex: none;
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+  outline: 3px solid var(--asphalt);
+}
+
 h1 {
   font-family: var(--display);
   font-weight: 600;
@@ -503,6 +519,17 @@ h2 {
 @media (max-width: 760px) {
   .page-header {
     padding: 32px 0 28px;
+  }
+
+  .identity {
+    gap: 16px;
+  }
+
+  .portrait {
+    width: 80px;
+    height: 80px;
+    border-width: 3px;
+    outline-width: 2px;
   }
 
   .section {
