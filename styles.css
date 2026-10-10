@@ -88,7 +88,7 @@ a:hover {
   flex: none;
   padding: 0;
   border: 0;
-  border-radius: 50%;
+  border-radius: 6px;
   background: none;
   cursor: zoom-in;
 }
@@ -97,10 +97,9 @@ a:hover {
   display: block;
   width: 128px;
   height: 128px;
-  border-radius: 50%;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
   object-fit: cover;
-  border: 4px solid #fff;
-  outline: 3px solid var(--asphalt);
 }
 
 h1 {
@@ -537,8 +536,6 @@ h2 {
   .portrait {
     width: 80px;
     height: 80px;
-    border-width: 3px;
-    outline-width: 2px;
   }
 
   .section {
