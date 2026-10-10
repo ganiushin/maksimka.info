@@ -462,21 +462,34 @@ const render = () => {
   updateRover();
 };
 
-// GitHub Pages lets browsers keep the page for ten minutes. If a newer build is
-// already published, reload once so a returning reader is not shown a stale page.
+// GitHub Pages lets browsers and its own CDN keep every file for ten minutes.
+// So the page asks for version.txt under a one-off address, which no cache has,
+// and if a newer build is out it reopens itself under an address stamped with
+// that build: neither the browser nor the CDN can answer that from an old copy.
 const reloadIfStale = async () => {
   try {
-    const response = await fetch("./version.txt", { cache: "no-store" });
+    const response = await fetch(`./version.txt?t=${Date.now()}`, { cache: "no-store" });
     if (!response.ok) {
       return;
     }
     const latest = (await response.text()).trim();
     if (latest && latest !== BUILD && sessionStorage.getItem("reloaded-for") !== latest) {
       sessionStorage.setItem("reloaded-for", latest);
-      location.reload();
+      const fresh = new URL(location.href);
+      fresh.searchParams.set("v", latest);
+      location.replace(fresh);
     }
   } catch {
     // offline or blocked storage: keep showing what we have
+  }
+};
+
+// The build stamp in the address has done its job once the page is open.
+const tidyAddress = () => {
+  const url = new URL(location.href);
+  if (url.searchParams.has("v")) {
+    url.searchParams.delete("v");
+    history.replaceState(null, "", url);
   }
 };
 
@@ -502,6 +515,7 @@ const bootstrap = async () => {
   });
   attachViewerHandlers();
   attachScrollHandlers();
+  tidyAddress();
   reloadIfStale();
   // A tab left open, or a page restored by the Back button, never "loads" again,
   // so it is also checked whenever the reader comes back to it.
