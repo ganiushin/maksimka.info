@@ -154,6 +154,37 @@
     "additional": [
       "Водительские права категорий A и B, личный автомобиль",
       "Готов к командировкам и запуску новых площадок"
+    ],
+    "navigator": [
+      {
+        "at": 0.0,
+        "text": "Маршрут построен: 16 лет опыта, пробок нет."
+      },
+      {
+        "at": 0.1,
+        "text": "Вы на главной дороге. Читайте с удобной скоростью."
+      },
+      {
+        "at": 0.28,
+        "text": "Впереди шесть лет в Яндексе. Ремни можно не отстегивать."
+      },
+      {
+        "at": 0.5,
+        "text": "Половина пути. Похоже, вы заинтересовались."
+      },
+      {
+        "at": 0.66,
+        "text": "Так далеко обычно доезжают те, кто собирается написать."
+      },
+      {
+        "at": 0.82,
+        "text": "Осталось немного: проекты, фото и роботы."
+      },
+      {
+        "at": 0.97,
+        "text": "Вы прибыли. Пункт назначения — написать Максиму",
+        "href": "mailto:M.Ganyushin@gmail.com"
+      }
     ]
   },
   "en": {
@@ -311,6 +342,37 @@
     "additional": [
       "Driving license, categories A and B; own car",
       "Open to business trips and launching new sites"
+    ],
+    "navigator": [
+      {
+        "at": 0.0,
+        "text": "Route planned: 16 years of experience, no traffic."
+      },
+      {
+        "at": 0.1,
+        "text": "You are on the priority road. Read at a comfortable speed."
+      },
+      {
+        "at": 0.28,
+        "text": "Six years at Yandex ahead. Keep your seat belt on."
+      },
+      {
+        "at": 0.5,
+        "text": "Halfway there. Looks like you are interested."
+      },
+      {
+        "at": 0.66,
+        "text": "Most people who get this far are about to write."
+      },
+      {
+        "at": 0.82,
+        "text": "Almost there: projects, photos and robots."
+      },
+      {
+        "at": 0.97,
+        "text": "You have arrived. Destination: write to Maksim",
+        "href": "mailto:M.Ganyushin@gmail.com"
+      }
     ]
   }
 }

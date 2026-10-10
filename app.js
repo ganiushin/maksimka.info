@@ -267,6 +267,73 @@ const renderProjects = () => {
   $("#projects-list").replaceChildren(...state.projects.items.map(projectNode));
 };
 
+/* Navigator: a road-sign chip whose message changes as the reader scrolls,
+   and the rover that drives along the experience road. */
+
+const guide = { chip: $("#navigator"), text: $("#navigator-text"), index: -1, dismissed: false };
+
+const updateNavigator = () => {
+  const stops = state.resume?.[state.lang].navigator;
+  if (!stops || guide.dismissed) {
+    return;
+  }
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+  let index = 0;
+  stops.forEach((stop, i) => {
+    if (progress >= stop.at) {
+      index = i;
+    }
+  });
+  if (index === guide.index) {
+    return;
+  }
+  guide.index = index;
+  const stop = stops[index];
+  const node = stop.href ? el("a", "", stop.text) : el("span", "", stop.text);
+  if (stop.href) {
+    node.href = stop.href;
+  }
+  guide.text.replaceChildren(node);
+  guide.chip.hidden = false;
+  guide.chip.classList.remove("is-fresh");
+  void guide.chip.offsetWidth; // restart the highlight animation
+  guide.chip.classList.add("is-fresh");
+};
+
+const updateRover = () => {
+  const road = $("#experience-list");
+  const rover = road.querySelector(".timeline-rover");
+  if (!rover) {
+    return;
+  }
+  const rect = road.getBoundingClientRect();
+  const travel = rect.height - rover.offsetHeight - 30;
+  const passed = Math.min(Math.max((window.innerHeight * 0.4 - rect.top) / rect.height, 0), 1);
+  rover.style.transform = `translateY(${Math.round(passed * travel)}px) rotate(${passed > 0 ? 180 : 0}deg)`;
+};
+
+const attachScrollHandlers = () => {
+  let queued = false;
+  const onScroll = () => {
+    if (queued) {
+      return;
+    }
+    queued = true;
+    requestAnimationFrame(() => {
+      queued = false;
+      updateNavigator();
+      updateRover();
+    });
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  $("#navigator-close").addEventListener("click", () => {
+    guide.dismissed = true;
+    guide.chip.hidden = true;
+  });
+};
+
 /* Page */
 
 const render = () => {
@@ -274,7 +341,9 @@ const render = () => {
   renderProjects();
   document.querySelectorAll(".lang-button").forEach((button) => {
     button.classList.toggle("is-active", button.dataset.lang === state.lang);
-  });
+  });  guide.index = -1;
+  updateNavigator();
+  updateRover();
 };
 
 const loadJson = async (path) => {
@@ -298,6 +367,7 @@ const bootstrap = async () => {
     });
   });
   attachViewerHandlers();
+  attachScrollHandlers();
   $("#portrait-button").addEventListener("click", () => {
     const portrait = $("#portrait-button img");
     openViewer([{ src: portrait.getAttribute("src"), caption: state.resume[state.lang].fullName }]);

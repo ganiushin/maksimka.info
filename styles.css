@@ -239,6 +239,12 @@ h2 {
   width: 20px;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .timeline-rover {
+    transition: transform 0.25s ease-out;
+  }
+}
+
 .timeline-start {
   position: absolute;
   z-index: 1;
@@ -401,6 +407,73 @@ h2 {
   color: #fff;
   font-size: 0.85rem;
   font-weight: 500;
+}
+
+/* Navigator chip: an information road sign that comments on the reader's progress */
+
+.navigator {
+  position: fixed;
+  z-index: 5;
+  right: 16px;
+  bottom: 16px;
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  max-width: min(340px, calc(100vw - 32px));
+  padding: 10px 10px 10px 14px;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  outline: 2px solid var(--sign);
+  background: var(--sign);
+  color: #fff;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  box-shadow: 0 6px 18px rgb(27 33 38 / 0.25);
+}
+
+.navigator[hidden] {
+  display: none;
+}
+
+.navigator a {
+  color: #fff;
+  font-weight: 600;
+}
+
+.navigator-close {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: rgb(255 255 255 / 0.18);
+  color: #fff;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.navigator-close:hover {
+  background: var(--marking);
+  color: var(--asphalt);
+}
+
+.navigator-close:focus-visible {
+  outline-color: var(--marking);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .navigator.is-fresh {
+    animation: navigator-in 0.35s ease-out;
+  }
+}
+
+@keyframes navigator-in {
+  from {
+    transform: translateY(8px);
+    opacity: 0.4;
+  }
 }
 
 /* Full-screen photo viewer */
@@ -584,6 +657,7 @@ h2 {
   }
 
   .lang-switcher,
+  .navigator,
   .lightbox,
   .project-cover {
     display: none;
