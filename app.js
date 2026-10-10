@@ -61,8 +61,8 @@ const signNode = (year, isCurrent) => {
   const height = plateY + 44;
   const diamond = isCurrent
     ? `<g transform="rotate(45 22 17)">
-         <rect x="8" y="3" width="28" height="28" rx="3" fill="#fff" stroke="#2b333a" stroke-width="1.5"/>
-         <rect x="13" y="8" width="18" height="18" rx="1.5" fill="#f5b800"/>
+         <rect x="11" y="6" width="22" height="22" rx="2.5" fill="#fff" stroke="#2b333a" stroke-width="1.5"/>
+         <rect x="15" y="10" width="14" height="14" rx="1.2" fill="#f5b800"/>
        </g>`
     : `<circle cx="22" cy="17" r="15" fill="#fff"/>
        <circle cx="22" cy="17" r="12" fill="#0a5ca8" stroke="#d6312b" stroke-width="4"/>
