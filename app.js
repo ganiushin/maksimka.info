@@ -391,7 +391,7 @@ const updateRover = () => {
 // Scroll too fast and the chip turns into a speeding warning for a few seconds.
 // Speed is averaged over the last fraction of a second, so both one long flick
 // and a burst of quick wheel turns are caught.
-const SPEED_LIMIT = 1.8; // px per ms of page scroll, about two screens a second
+const SPEED_LIMIT = 1.5; // px per ms of page scroll, a little under two screens a second
 const SPEED_WINDOW = 220; // ms
 const speedTrap = { samples: [], quietUntil: 0, timer: 0 };
 
@@ -503,6 +503,18 @@ const bootstrap = async () => {
   attachViewerHandlers();
   attachScrollHandlers();
   reloadIfStale();
+  // A tab left open, or a page restored by the Back button, never "loads" again,
+  // so it is also checked whenever the reader comes back to it.
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+      reloadIfStale();
+    }
+  });
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) {
+      reloadIfStale();
+    }
+  });
   $("#portrait-button").addEventListener("click", () => {
     const portrait = $("#portrait-button img");
     openViewer([{ src: portrait.getAttribute("src").split("?")[0], caption: state.resume[state.lang].fullName }]);
