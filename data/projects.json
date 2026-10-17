@@ -55,8 +55,8 @@
         {
           "url": "https://snob.ru/news/yandeks-nachal-testirovat-bespilotnye-avto-bez-voditelya-v-salone/",
           "text": {
-            "ru": "Сноб: «Яндекс» начал тестировать беспилотные авто без водителя в салоне",
-            "en": "Snob: Yandex begins testing self-driving cars with no driver inside"
+            "ru": "Сноб: финальный этап испытаний в Иннополисе",
+            "en": "Snob: the final stage of testing in Innopolis"
           }
         },
         {
@@ -69,8 +69,8 @@
         {
           "url": "https://auto.ru/mag/article/yandeks-pervym-v-evrope-nachal-testirovat-bespilotniki-bez-strahuyushchego-voditelya/",
           "text": {
-            "ru": "Авто.ру: «Яндекс» первым в Европе начал тестировать беспилотники без страхующего водителя",
-            "en": "Auto.ru: Yandex is the first in Europe to test self-driving cars with no safety driver"
+            "ru": "Авто.ру: первый в Европе беспилотник без людей в салоне",
+            "en": "Auto.ru: Europe's first self-driving car with nobody inside"
           }
         }
       ],
@@ -372,13 +372,6 @@
           "caption": {
             "ru": "Площадка «Городской миссии» Яндекс Образования на РобоФинисте.",
             "en": "The Yandex Education City Mission area at RoboFinist."
-          }
-        },
-        {
-          "src": "./assets/media/robofinist-field.png",
-          "caption": {
-            "ru": "Схема полигона 2 × 2 м для финала.",
-            "en": "The 2 × 2 m field layout for the final."
           }
         }
       ]
