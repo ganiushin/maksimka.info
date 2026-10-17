@@ -53,10 +53,10 @@
       },
       "links": [
         {
-          "url": "https://inkazan.ru/news/2023-10-25/iz-salona-bespilotnogo-taksi-v-innopolise-ischez-muzhchina-3080383",
+          "url": "https://snob.ru/news/yandeks-nachal-testirovat-bespilotnye-avto-bez-voditelya-v-salone/",
           "text": {
-            "ru": "Inkazan: 50 км по Иннополису без водителя-испытателя",
-            "en": "Inkazan: 50 km around Innopolis with no safety driver"
+            "ru": "Сноб: «Яндекс» начал тестировать беспилотные авто без водителя в салоне",
+            "en": "Snob: Yandex begins testing self-driving cars with no driver inside"
           }
         },
         {
@@ -64,6 +64,13 @@
           "text": {
             "ru": "Интерфакс: «Яндекс» начал тестировать беспилотные авто без водителя в салоне",
             "en": "Interfax: Yandex begins testing self-driving cars with no driver inside"
+          }
+        },
+        {
+          "url": "https://auto.ru/mag/article/yandeks-pervym-v-evrope-nachal-testirovat-bespilotniki-bez-strahuyushchego-voditelya/",
+          "text": {
+            "ru": "Авто.ру: «Яндекс» первым в Европе начал тестировать беспилотники без страхующего водителя",
+            "en": "Auto.ru: Yandex is the first in Europe to test self-driving cars with no safety driver"
           }
         }
       ],
